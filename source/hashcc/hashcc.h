@@ -4,7 +4,7 @@
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
- * Copyright (c) 2009-2015 Christian Scheiblich (cscheiblich@gmail.com)
+ * Copyright (c) 2009-2016 Christian Scheiblich (cscheiblich@gmail.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -51,8 +51,8 @@ namespace HASHCC {
 #define _HASHCC_PACKAGE_ "Deeaan Lampel" // since 20091014
 
 /// first load test are done for prototype of binary hash function and tree
-#define _HASHCC_VERSION_NO_ "0.14"
-#define _HASHCC_VERSION_DATE_ 20141231
+#define _HASHCC_VERSION_NO_ "0.16"
+#define _HASHCC_VERSION_DATE_ 20150106
 
 } // namespace HASHCC
 

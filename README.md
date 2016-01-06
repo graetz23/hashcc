@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/cscheiblich/hashcc.svg?branch=master)](https://travis-ci.org/cscheiblich/hashcc) on travis-ci.com
 HASHCC C++ hash map implementation
 ==================================
 HASHCC is distributed under the MIT License (MIT); this file is part of.

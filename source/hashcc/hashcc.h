@@ -52,7 +52,7 @@ namespace HASHCC {
 
 /// first load test are done for prototype of binary hash function and tree
 #define _HASHCC_VERSION_NO_ "0.16"
-#define _HASHCC_VERSION_DATE_ 20150106
+#define _HASHCC_VERSION_DATE_ 20160106
 
 } // namespace HASHCC
 

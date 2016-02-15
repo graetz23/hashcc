@@ -170,8 +170,8 @@ hashAdler64( Char* key, uInt16 len ) {
 
 uInt16
 hashFNV16( Char* key, uInt16 len ) {
-  uInt64 nHashVal    = 0xcbf29ce484222325ULL,
-         nMagicPrime = 0x00000100000001b3ULL;
+  uInt64 nHashVal    = 0xcbf29ce484222325ULL;
+  uInt64 nMagicPrime = 0x00000100000001b3ULL;
   uChar* pFirst = ( uChar* )( key );
   uChar* pLast  = pFirst + len;
   while( pFirst < pLast ) {
@@ -184,8 +184,8 @@ hashFNV16( Char* key, uInt16 len ) {
 
 uInt32 
 hashFNV32( Char* key, uInt16 len ) {
-  uInt64 nHashVal    = 0xcbf29ce484222325ULL,
-         nMagicPrime = 0x00000100000001b3ULL;
+  uInt64 nHashVal    = 0xcbf29ce484222325ULL;
+  uInt64 nMagicPrime = 0x00000100000001b3ULL;
   uChar* pFirst = ( uChar* )( key );
   uChar* pLast  = pFirst + len;
   while( pFirst < pLast ) {
@@ -198,8 +198,8 @@ hashFNV32( Char* key, uInt16 len ) {
 
 uInt64 
 hashFNV64( Char* key, uInt16 len ) {
-  uInt64 nHashVal    = 0xcbf29ce484222325ULL,
-         nMagicPrime = 0x00000100000001b3ULL;
+  uInt64 nHashVal    = 0xcbf29ce484222325ULL;
+  uInt64 nMagicPrime = 0x00000100000001b3ULL;
   uChar* pFirst = ( uChar* )( key );
   uChar* pLast  = pFirst + len;
   while( pFirst < pLast ) {

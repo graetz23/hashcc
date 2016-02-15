@@ -1,6 +1,19 @@
 [![Build Status](https://travis-ci.org/cscheiblich/hashcc.svg?branch=master)](https://travis-ci.org/cscheiblich/hashcc) on travis-ci.com
 HASHCC C++ hash map implementation
 ==================================
+
+HASHCC is an object-oiented C++ hash map implementation based on templates. It
+builds a tree structure as deep as the length and as wide as used symbols of the
+hash. The hash or the hash method can be exchanged, while currently a hash of
+length 24 and 10 symbols {0-9} is ste initially. This allows for a theoretial
+space of 10^24 = 1000 0000 0000 0000 0000 0000 possibilities .. have fun. ~8>
+
+By the way the implementation of HASHCC is adapted from
+  Java's HashMap< Key, Object >( );
+
+License
+-------
+
 HASHCC is distributed under the MIT License (MIT); this file is part of.
 
 Copyright (c) 2008-2016 Christian Scheiblich (cscheiblich@gmail.com)
@@ -23,11 +36,16 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-BULKCC Version 0.16 20150106
+Version
+-------
 
-change log:
+HASHCC Version 0.16 20150106
+
+Change Log
+----------
 
 201XXXXX version 0.1X :
+- updated readme file
 
 20160106 version 0.16 :
 - updated years of the Copyright to 2009-2016

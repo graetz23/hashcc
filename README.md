@@ -5,7 +5,7 @@ HASHCC C++ hash map implementation
 HASHCC is an object-oiented C++ hash map implementation based on templates. It
 builds a tree structure as deep as the length and as wide as used symbols of the
 hash. The hash or the hash method can be exchanged, while currently a hash of
-length 24 and 10 symbols {0-9} is ste initially. This allows for a theoretial
+length 24 and 10 symbols {0-9} is set initially. This allows for a theoretial
 space of 10^24 = 1000 0000 0000 0000 0000 0000 possibilities .. have fun. ~8>
 
 By the way the implementation of HASHCC is adapted from
@@ -39,7 +39,7 @@ THE SOFTWARE.
 Version
 -------
 
-HASHCC Version 0.16 20150106
+HASHCC Version 0.16 20160215
 
 Change Log
 ----------

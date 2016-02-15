@@ -1,6 +1,7 @@
-[![Build Status](https://travis-ci.org/cscheiblich/hashcc.svg?branch=master)](https://travis-ci.org/cscheiblich/hashcc) on travis-ci.com
 HASHCC C++ hash map implementation
 ==================================
+
+[![Build Status](https://travis-ci.org/cscheiblich/hashcc.svg?branch=master)](https://travis-ci.org/cscheiblich/hashcc) on travis-ci.com
 
 HASHCC is an object-oiented C++ hash map implementation based on templates. It
 builds a tree structure as deep as the length and as wide as used symbols of the

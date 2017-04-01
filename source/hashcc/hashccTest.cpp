@@ -334,10 +334,10 @@ test( void ) {
     TYP::TreeController* treeC = new TYP::TreeController( );
 
     Int16 keySize = 16;
-    Char* key1 = "0110001010101011";
-    Char* key2 = "0110001010101010"; // same as key1 till last bit
-    Char* key3 = "1110001010101011";
-    Char* key4 = "1110001010101010"; // same as key3 till last bit
+    Char* key1 = (Char*)"0110001010101011";
+    Char* key2 = (Char*)"0110001010101010"; // same as key1 till last bit
+    Char* key3 = (Char*)"1110001010101011";
+    Char* key4 = (Char*)"1110001010101010"; // same as key3 till last bit
 
     //Int16 keySize = 2;
     //Char* key1 = "00";
@@ -492,19 +492,19 @@ test( void ) {
 
     } // h
 
-    Char* search1 = "0101010101010101";
+    Char* search1 = (Char*)"0101010101010101";
     std::cout << treeC->getBin< String >( tree, search1, keySize ) << std::endl
         << std::flush;
-    Char* search2 = "0000000000000000";
+    Char* search2 = (Char*)"0000000000000000";
     std::cout << treeC->getBin< String >( tree, search2, keySize ) << std::endl
         << std::flush;
-    Char* search3 = "1111111111111111";
+    Char* search3 = (Char*)"1111111111111111";
     std::cout << treeC->getBin< String >( tree, search3, keySize ) << std::endl
         << std::flush;
-    Char* search4 = "1010101010101010";
+    Char* search4 = (Char*)"1010101010101010";
     std::cout << treeC->getBin< String >( tree, search4, keySize ) << std::endl
         << std::flush;
-    Char* search5 = "0000111100001111";
+    Char* search5 = (Char*)"0000111100001111";
     std::cout << treeC->getBin< String >( tree, search5, keySize ) << std::endl
         << std::flush;
 

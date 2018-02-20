@@ -49,7 +49,7 @@ Change Log
 - updated readme file
 
 20160106 version 0.16 :
-- updated years of the Copyright to 2009-2017
+- updated years of the Copyright to 2009-2018
 
 20141231 version 0.15 :
 - changed to the MIT License (MIT)

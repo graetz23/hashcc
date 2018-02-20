@@ -4,7 +4,7 @@
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
- * Copyright (c) 2009-2017 Christian Scheiblich (cscheiblich@gmail.com)
+ * Copyright (c) 2009-2018 Christian Scheiblich (cscheiblich@gmail.com)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

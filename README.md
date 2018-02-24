@@ -1,4 +1,4 @@
-##HASHCC C++ hash map implementation##
+## HASHCC C++ hash map implementation ##
 
 [![Build Status](https://travis-ci.org/cscheiblich/hashcc.svg?branch=master)](https://travis-ci.org/cscheiblich/hashcc) on travis-ci.com
 
@@ -11,7 +11,7 @@ space of 10^24 = 1000 0000 0000 0000 0000 0000 possibilities .. have fun. ~8>
 By the way the implementation of HASHCC is adapted from
   Java's HashMap< Key, Object >( );
 
-###License###
+### License ###
 
 **HASHCC is distributed under the MIT License (MIT); this file is part of.**
 
@@ -35,11 +35,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-##Version##
+## Version ##
 
 **HASHCC Version 0.16 20160215**
 
-##Change Log##
+## Change Log ##
 
 201XXXXX version 0.1X :
 - updated readme file

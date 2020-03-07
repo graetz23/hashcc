@@ -1,6 +1,6 @@
-/** 
+/**
  * @file hashccTest.h
- * @author Christian Scheiblich
+ * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
@@ -46,7 +46,6 @@ namespace TEST {
 
 /******************************************************************************/
 
-#define _VERSION_HASHCC_Test_ 0.15 // 20141231
 #define _DEBUG_HASHCC_Test_
 
 void test( void ); /// tests the TreeController and the Tree

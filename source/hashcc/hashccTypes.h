@@ -1,6 +1,6 @@
-/** 
+/**
  * @file hashccTypes.h
- * @author Christian Scheiblich
+ * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
@@ -44,16 +44,15 @@
 
 namespace HASHCC {
 
-#define _VERSION_HASHCC_Types_ 0.15 // 20141231
 #define _DEBUG_HASHCC_Types_
 
 /******************************************************************************/
-  
+
 /// for compiling the actual date
-#define _HASHCC_BUILT_DATE_ __DATE__ 
-  
+#define _HASHCC_BUILT_DATE_ __DATE__
+
 /// for compiling the actual time
-#define _HASHCC_BUILT_TIME_ __TIME__ 
+#define _HASHCC_BUILT_TIME_ __TIME__
 /// enable this for debug code running
 
 /// define this to use development code in HASHCC:: namespace
@@ -63,7 +62,7 @@ namespace HASHCC {
 #endif
 
 /// activate debug code
-#define _DEBUG_HASHCC_ 
+#define _DEBUG_HASHCC_
 
 /******************************************************************************/
 

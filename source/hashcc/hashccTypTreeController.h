@@ -1,6 +1,6 @@
-/** 
+/**
  * @file hashccTypTreeController.h
- * @author Christian Scheiblich
+ * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
@@ -50,7 +50,6 @@ namespace TYP {
 
 /******************************************************************************/
 
-#define _VERSION_HASHCC_TYP_TreeController_ 0.15 // 20141231
 #define _DEBUG_HASHCC_TYP_TreeController_
 
 typedef STC::Bin Bin; // namespace typedef
@@ -165,7 +164,7 @@ TreeController::descendFetch( Tree*& t, Int16 s, Int16 d, Int16 p ) {
       l = (TreeLimb<T>*)( l->_t[ p ] );
       t = (Tree*)l;
     } else { // hash not valid
-      t = 0; 
+      t = 0;
     } // if exists
   } // if leaf
   return f;

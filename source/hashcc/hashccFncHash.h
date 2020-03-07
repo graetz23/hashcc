@@ -1,6 +1,6 @@
-/** 
+/**
  * @file hashccFncHash.h
- * @author Christian Scheiblich
+ * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
@@ -40,7 +40,6 @@ namespace FNC {
 
 /******************************************************************************/
 
-#define _VERSION_HASHCC_FNC_Hash_ 0.15 // 20141231
 #define _DEBUG_HASHCC_FNC_Hash_
 
 /******************************************************************************/
@@ -63,7 +62,7 @@ uInt64 hashAdler64( Char* key, uInt16 len );
 
 uInt16 hashFNV16( Char* key, uInt16 len );
 uInt32 hashFNV32( Char* key, uInt16 len );
-uInt64 hashFNV64( Char* key, uInt16 len ); 
+uInt64 hashFNV64( Char* key, uInt16 len );
 
 /******************************************************************************/
 
@@ -73,7 +72,7 @@ hashELF32( Char* key, uInt16 len );
 /******************************************************************************/
 
 String blowZero( String str, uInt16 size );
- 
+
 /******************************************************************************/
 
 //String dec2hex2( Int16 dec ); // convert DEC to HEX

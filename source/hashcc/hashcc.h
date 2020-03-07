@@ -1,6 +1,6 @@
-/** 
+/**
  * @file hashcc.h
- * @author Christian Scheiblich
+ * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
@@ -48,11 +48,12 @@ namespace HASHCC {
 
 /// from http://www.kleimo.com/random/name.cfm female, 1, 99
 // Pauletta Freshley 20090926 0.00
-#define _HASHCC_PACKAGE_ "Deeaan Lampel" // since 20091014
+// Deeaan Lampel 20160106 0.10
+#define _HASHCC_PACKAGE_ "Agnes Newton" // since 20200307
 
 /// first load test are done for prototype of binary hash function and tree
-#define _HASHCC_VERSION_NO_ "0.16"
-#define _HASHCC_VERSION_DATE_ 20160106
+#define _HASHCC_VERSION_NO_ "0.20"
+#define _HASHCC_VERSION_DATE_ 20200307
 
 } // namespace HASHCC
 

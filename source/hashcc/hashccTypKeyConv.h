@@ -1,6 +1,6 @@
-/** 
+/**
  * @file hashccTypKeyConv.h
- * @author Christian Scheiblich
+ * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
@@ -54,7 +54,6 @@ namespace TYP {
 
 /******************************************************************************/
 
-#define _VERSION_HASHCC_TYP_KeyConv_ 0.15 // 20141231
 #define _DEBUG_HASHCC_TYP_KeyConv_
 
 /******************************************************************************/

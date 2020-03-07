@@ -2,7 +2,7 @@
 
 ### C++ hash map library
 
-[![Build Status](https://travis-ci.org/cscheiblich/hashcc.svg?branch=master)](https://travis-ci.org/cscheiblich/hashcc) on travis-ci.com
+**The continuous integration** [![Build Status](https://travis-ci.org/cscheiblich/hashcc.svg?branch=master)](https://travis-ci.org/cscheiblich/hashcc) **on travis-ci.com**
 
 ### Introduction
 
@@ -10,7 +10,7 @@
 
 ### Notes
 
-I adapted this hashmap library in 2007 from Java's HashMap< Key, Object >( ) class, comeing around as System's library. However, I brainstormed the internal by myself and the implementation insisde this library is more like **[a Trie, a hash tree)(https://en.wikipedia.org/wiki/Trie)**, respectively.
+I adapted this hashmap library in 2007 from Java's HashMap< Key, Object >( ) class, comeing around as System's library. However, I brainstormed the internal by myself and the implementation insisde this library is more like [**a Trie, a hash tree**](https://en.wikipedia.org/wiki/Trie), respectively.
 
 ### Getting Started
 
@@ -45,13 +45,14 @@ THE SOFTWARE.
 
 ### Version ###
 
-**HASHCC Version 0.16 20160215**
+**HASHCC Version 0.20 20200307**
 
 ### Change Log ###
 
-201XXXXX version 0. :
+20200307 version 0.2 :
 - changing copyright and contact to new email address,
-- updated readme file
+- updating readme file and package release name: *Agnes Newton*,
+- removed version lables of each header file, keeping only hashcc.h.
 
 20160106 version 0.16 :
 - updated years of the Copyright to 2009-2018

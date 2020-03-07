@@ -1,5 +1,5 @@
 # @file Makefile
-# @author Christian Scheiblich
+# @author Christian
 #
 # HASHCC is distributed under the MIT License (MIT); this file is part of.
 #
@@ -23,11 +23,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 #
-# HASHCC version 0.14 20120430
-#
 # type to your console for a test run:
 #
-#   make && cd HASHCC && ./hashcc
+#   make && ./hashcc
 #
 
 CC=g++
@@ -92,3 +90,7 @@ refresh:
 	make clean
 	make update
 	make
+
+test:
+	make
+	./hashcc

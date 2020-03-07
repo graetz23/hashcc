@@ -1,6 +1,6 @@
-/** 
+/**
  * @file hashccErrException.h
- * @author Christian Scheiblich
+ * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
@@ -40,7 +40,6 @@ namespace ERR {
 
 /******************************************************************************/
 
-#define _VERSION_HASHCC_ERR_Exception_ 0.15 // 20141231
 #define _DEBUG_HASHCC_ERR_Exception_
 
 /******************************************************************************/
@@ -74,7 +73,7 @@ Exception {
 
  protected:
 
-  String _message; /// the generated exception message  
+  String _message; /// the generated exception message
 
  private:
 

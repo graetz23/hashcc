@@ -1,6 +1,6 @@
-/** 
+/**
  * @file hashccObjHashMapDec10Elf.h
- * @author Christian Scheiblich
+ * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
@@ -40,13 +40,12 @@ namespace OBJ {
 
 /******************************************************************************/
 
-#define _VERSION_HASHCC_OBJ_HashMapDec10Elf_ 0.15 // 20141231
 #define _DEBUG_HASHCC_OBJ_HashMapDec10Elf_
 
 /******************************************************************************/
 
 /// class as pattern for following classes
-template<typename K, typename V> class 
+template<typename K, typename V> class
 HashMapDec10Elf : public HashMapDec24<K,V> {
  public:
 
@@ -55,14 +54,14 @@ HashMapDec10Elf : public HashMapDec24<K,V> {
 
   V get( K key ); /// returns a stored object
 
-  V* put( K key, V value ); /// stores an object by key; 
+  V* put( K key, V value ); /// stores an object by key;
                             /// returns an object pointer if key is occupied
  protected:
 
 }; // class HashMapDec10Elf
 
 /******************************************************************************/
-  
+
 /// constructor
 template<typename K, typename V>
 HashMapDec10Elf<K,V>::HashMapDec10Elf( void ) {
@@ -93,7 +92,7 @@ HashMapDec10Elf<K,V>::get( K key ) {
 } // HashMapDec10Elf<T>::get
 
 template<typename K, typename V> V* /// stores an object
-HashMapDec10Elf<K,V>::put( K key, V value ) { 
+HashMapDec10Elf<K,V>::put( K key, V value ) {
 
   String strKey = TYP::keyConv<K>( key );
 
@@ -110,13 +109,13 @@ HashMapDec10Elf<K,V>::put( K key, V value ) {
     msg.append( strKey );
     msg.append( "\" already occupied!" );
     throw ERR::Failure(  );
-  } 
+  }
   this->_noOfVal++;
 
   return pValue; // is null pointer if hash is not occupied
 
 } // HashMapDec10Elf<T>::put
-               
+
 /******************************************************************************/
 
 } // namespace OBJ

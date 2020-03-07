@@ -1,6 +1,6 @@
-/** 
+/**
  * @file hashccObjHashMapDec.h
- * @author Christian Scheiblich
+ * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
@@ -40,11 +40,10 @@ namespace OBJ {
 
 /******************************************************************************/
 
-#define _VERSION_HASHCC_OBJ_HashMapDec_ 0.15 // 20141231
 #define _DEBUG_HASHCC_OBJ_HashMapDec_
 
 /// class as pattern for following classes
-template<typename K, typename V> class 
+template<typename K, typename V> class
 HashMapDec : public HashMap<K,V> {
  public:
 
@@ -54,8 +53,8 @@ HashMapDec : public HashMap<K,V> {
 }; // class HashMapDec
 
 /******************************************************************************/
-  
-template<typename K, typename V> /// constructor 
+
+template<typename K, typename V> /// constructor
 HashMapDec<K,V>::HashMapDec( void ) {
   this->_tree = 0;
 } // HashMapDec
@@ -78,4 +77,3 @@ HashMapDec<K,V>::~HashMapDec( void ) {
 /******************************************************************************/
 
 #endif // __hashccObjHashMapDec_h__
-

@@ -1,6 +1,6 @@
-/** 
+/**
  * @file hashccErrFailure.h
- * @author Christian Scheiblich
+ * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
@@ -40,7 +40,6 @@ namespace ERR {
 
 /******************************************************************************/
 
-#define _VERSION_HASHCC_ERR_Failure_ 0.15 // 20141231
 #define _DEBUG_HASHCC_ERR_Failure_
 
 /******************************************************************************/
@@ -57,7 +56,7 @@ Failure : public Exception { // for failure 2 be handled
   Failure( String message, Char* fileName ); /// use __FILE__ @ fileName
   Failure( String message, Char* fileName, Int16 lineNo ); /// use __FILE__ @ fileName and __LINE__ @ lineNo
   virtual ~Failure( void ); /// destructor
-  
+
  protected:
 
   virtual void mark( void ); /// mark an exception

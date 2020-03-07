@@ -1,6 +1,6 @@
-/** 
+/**
  * @file hashccJnk.h
- * @author Christian Scheiblich
+ * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
@@ -46,7 +46,6 @@ namespace JNK {
 
 /******************************************************************************/
 
-#define _VERSION_HASHCC_JNK_ 0.15 // 20141231
 #define _DEBUG_HASHCC_JNK_
 
 /******************************************************************************/
@@ -87,7 +86,7 @@ xxx_to_bin( const T& value ) {
   const String::size_type pos( s.find_first_not_of( '0' ) );
 
   return pos == String::npos ? "0" : s.substr( pos );
-  
+
 } // xxx_to_bin
 
 template< typename T >

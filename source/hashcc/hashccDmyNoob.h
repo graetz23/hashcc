@@ -1,6 +1,6 @@
-/** 
+/**
  * @file hashccDmyNoob.h
- * @author Christian Scheiblich
+ * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
@@ -40,7 +40,6 @@ namespace DMY {
 
 /******************************************************************************/
 
-#define _VERSION_HASHCC_DMY_Noob_ 0.15 // 20141231
 #define _DEBUG_HASHCC_DMY_Noob_
 
 /******************************************************************************/

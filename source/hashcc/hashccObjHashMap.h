@@ -1,6 +1,6 @@
-/** 
+/**
  * @file hashccObjHashMap.h
- * @author Christian Scheiblich
+ * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
@@ -40,7 +40,6 @@ namespace OBJ {
 
 /******************************************************************************/
 
-#define _VERSION_HASHCC_OBJ_HashMap_ 0.15 // 20141231
 #define _DEBUG_HASHCC_OBJ_HashMap_
 
 /******************************************************************************/
@@ -75,7 +74,7 @@ class HashMap {
 }; // class HashMap
 
 /******************************************************************************/
-  
+
 template<typename K, typename V> /// constructor
 HashMap< K, V >::HashMap( void ) {
   TYP::keyTest<K>( ); // throws ERR::Error if key data type is not available
@@ -105,4 +104,3 @@ HashMap< K, V >::size( void ) {
 /******************************************************************************/
 
 #endif // __hashccObjHashMap_h__
-

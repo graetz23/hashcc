@@ -1,4 +1,4 @@
-## HASHCC 
+## HASHCC
 
 ### C++ hash map library
 
@@ -10,11 +10,11 @@
 
 ### Notes
 
-I adapted this hashmap library in 2007 from Java's HashMap< Key, Object >( ) class, comeing around as System's library. However, I brainstormed the internal by myself and the implementation insisde this library is more like a **[Trie (hash tree)}(https://en.wikipedia.org/wiki/Trie)**.
+I adapted this hashmap library in 2007 from Java's HashMap< Key, Object >( ) class, comeing around as System's library. However, I brainstormed the internal by myself and the implementation insisde this library is more like **[a Trie, a hash tree)}(https://en.wikipedia.org/wiki/Trie)**, respectively.
 
 ### Getting Started
 
-For getting started with hashCC have a look at [the (unit) test file](https://github.com/cscheiblich/hashcc/blob/master/source/hashcc/hashccTest.cpp#L323) (line 323= that is available. 
+For getting started with hashCC have a look at [the (unit) test file](https://github.com/cscheiblich/hashcc/blob/master/source/hashcc/hashccTest.cpp#L173) (line 323= that is available.
 
 ### License ###
 
@@ -85,7 +85,7 @@ THE SOFTWARE.
 - rebuild namespace HASHCC::TEST::
  - moved functions there
  - splitted the common test function
-- splitted file hashccTypConvert.h of HASHCC::TYP:: 
+- splitted file hashccTypConvert.h of HASHCC::TYP::
  - one file keeps the tests for a valid key
  - one file keeps the converting functions for the key
 - splitted file hashccTypTree.h of HASHCC::TYP::
@@ -113,7 +113,7 @@ THE SOFTWARE.
 
 20091013 version 0.08 :
 - implemented HashMapDec24Fnv<K,V> class
- - added hashing function with a lot of conversions form char* to string 
+ - added hashing function with a lot of conversions form char* to string
  - put function is working
  - get function is working
  - size function not tested yet; but that easy should work
@@ -137,7 +137,7 @@ THE SOFTWARE.
   - added V get( K ); returns a value or an object if stored
   - added V put( K, V ); return null and stores object / value or returns a
     pointer to an object / a value if the hash used is already accoupied, in
-    case the the new objects replaces the old one; do not forget to delete 
+    case the the new objects replaces the old one; do not forget to delete
     the pointer
 
 20091011 version 0.06 :
@@ -146,7 +146,7 @@ THE SOFTWARE.
  - files are renamed
 - added function for hashs of decimal symbols [0-9]
  - test for hashes of size 24 yet; allows for storing 24^10 objects
- 
+
 20091010 version 0.05 :
 - added hash functions
  - added adler32 hash for decimal hashing

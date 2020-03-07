@@ -1,21 +1,26 @@
-## HASHCC C++ hash map implementation ##
+## HASHCC 
+
+### C++ hash map library
 
 [![Build Status](https://travis-ci.org/cscheiblich/hashcc.svg?branch=master)](https://travis-ci.org/cscheiblich/hashcc) on travis-ci.com
 
-HASHCC is an object-oiented C++ hash map implementation based on templates. It
-builds a tree structure as deep as the length and as wide as used symbols of the
-hash. The hash or the hash method can be exchanged, while currently a hash of
-length 24 and 10 symbols {0-9} is set initially. This allows for a theoretial
-space of 10^24 = 1000 0000 0000 0000 0000 0000 possibilities .. have fun. ~8>
+### Introduction
 
-By the way the implementation of HASHCC is adapted from
-  Java's HashMap< Key, Object >( );
+**HASHCC is an object-oiented C++ hash map library** based on C++ templates classes. By pushing some key, object tuple into it, **it builds a tree structure**. The tree gets **as deep as the length and as wide as varitey of symbols of the hash**. **The necessary hash** to build up each path to some pushed object, **can be exchanged**. **By default hashCC uses** the *adler* hash function to generate a length of 24 and 10 defferent symbols {0-9}; the build tree builds up **a space of dimension 24^10**. = 1000 0000 0000 0000 0000 0000 possibilities. However this is strongly dependent on the collision freeness of the hash function, its collision quality, respectively **.. have fun.**
+
+### Notes
+
+I adapted this hashmap library in 2007 from Java's HashMap< Key, Object >( ) class, comeing around as System's library. However, I brainstormed the internal by myself and the implementation insisde this library is more like a **[Trie (hash tree)}(https://en.wikipedia.org/wiki/Trie)**.
+
+### Getting Started
+
+For getting started with hashCC have a look at [the (unit) test file](https://github.com/cscheiblich/hashcc/blob/master/source/hashcc/hashccTest.cpp#L323) (line 323= that is available. 
 
 ### License ###
 
 **HASHCC is distributed under the MIT License (MIT); this file is part of.**
 
-**Copyright (c) 2008-2020 Christian Scheiblich (cscheiblich@gmail.com)**
+**Copyright (c) 2008-2020 Christian (graetz23@gmail.com)**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -41,7 +46,8 @@ THE SOFTWARE.
 
 ### Change Log ###
 
-201XXXXX version 0.1X :
+201XXXXX version 0. :
+- changing copyright and contact to new email address,
 - updated readme file
 
 20160106 version 0.16 :

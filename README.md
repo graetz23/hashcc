@@ -2,7 +2,7 @@
 
 ### C++ hash map library
 
-**The continuous integration** [![Build Status](https://travis-ci.org/cscheiblich/hashcc.svg?branch=master)](https://travis-ci.org/cscheiblich/hashcc) **on travis-ci.com**
+**The continuous integration** [![Build Status](https://travis-ci.org/graetz23/hashcc.svg?branch=master)](https://travis-ci.org/graetz23/hashcc) **on travis-ci.com**
 
 ### Introduction
 
@@ -17,7 +17,7 @@ I adapted this hashmap library in 2007 from Java's HashMap< Key, Object >( ) cla
 For getting started with hashCC have a look at [the (unit) test file](https://github.com/graetz23/hashcc/blob/master/source/hashcc/hashccTest.cpp#L173) that is available.
 
 Using some unix or GNU/Linux, try:
-**git clone https://github.com/cscheiblich/hashcc.git && cd hashcc && make**
+**git clone https://github.com/graetz23/hashcc.git && cd hashcc && make**
 
 ### License ###
 

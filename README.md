@@ -14,7 +14,7 @@ I adapted this hashmap library in 2007 from Java's HashMap< Key, Object >( ) cla
 
 ### Getting Started
 
-For getting started with hashCC have a look at [the (unit) test file](https://github.com/cscheiblich/hashcc/blob/master/source/hashcc/hashccTest.cpp#L173) (line 323= that is available.
+For getting started with hashCC have a look at [the (unit) test file](https://github.com/cscheiblich/hashcc/blob/master/source/hashcc/hashccTest.cpp#L173) that is available.
 
 Using some unix or GNU/Linux, try:
 **git clone https://github.com/cscheiblich/hashcc.git && cd hashcc && make**

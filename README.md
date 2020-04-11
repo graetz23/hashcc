@@ -1,6 +1,6 @@
 ## HASHCC
 
-### C++ hash map library
+### Template based C++ hash map library
 
 **The continuous integration** [![Build Status](https://travis-ci.org/graetz23/hashcc.svg?branch=master)](https://travis-ci.org/graetz23/hashcc) **on travis-ci.com**
 

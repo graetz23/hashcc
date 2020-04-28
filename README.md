@@ -6,11 +6,11 @@
 
 ### Introduction
 
-**HASHCC is an object-oiented C++ hash map library** based on C++ templates classes. By pushing some key, object tuple into it, **it builds a tree structure**. The tree gets **as deep as the length and as wide as varitey of symbols of the hash**. **The necessary hash** to build up each path to some pushed object, **can be exchanged**. **By default hashCC uses** the *adler* hash function to generate a length of 24 and 10 defferent symbols {0-9}; the build tree builds up **a space of dimension 24^10**. = 1000 0000 0000 0000 0000 0000 possibilities. However this is strongly dependent on the collision freeness of the hash function, its collision quality, respectively **.. have fun.**
+**HASHCC is an object-oiented C++ hash map library based on C++ templates**. By pushing some key / object tuple into it, **it builds a tree structure**; _trie like_. The tree gets **as deep as the length of the hash and as wide as the varitey of symbols of the hash**. **The necessary hash** to build up each path to some pushed object, **can be exchanged**. **By default hashCC uses** the **adler** hash function to generate a **length of 24 and 10 defferent symbols {0-9}**; the build tree builds up **a space of dimension 24^10**. = 1000 0000 0000 0000 0000 0000 possibilities. However this is strongly dependent on the collision freeness of the hash function or its _collision quality_, respectively **.. have fun.**
 
 ### Notes
 
-I adapted this hashmap library in 2007 from Java's HashMap< Key, Object >( ) class, comeing around as System's library. However, I brainstormed the internal by myself and the implementation insisde this library is more like [**a Trie, a hash tree**](https://en.wikipedia.org/wiki/Trie), respectively.
+I adapted this hashmap library in 2007 from Java's HashMap< Key, Object >( ) class, comeing around as System's library. However, I brainstormed the internal and the implementation insisde ended-up more like [**a Trie, a hash tree**](https://en.wikipedia.org/wiki/Trie).
 
 ### Getting Started
 

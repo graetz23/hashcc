@@ -2,8 +2,6 @@
 
 ### Template based C++ hash map library
 
-**The continuous integration** [![Build Status](https://travis-ci.org/graetz23/hashcc.svg?branch=master)](https://travis-ci.org/graetz23/hashcc) **on travis-ci.com**
-
 ### Introduction
 
 **HASHCC is an object-oiented C++ hash map library based on C++ templates**. By pushing some key / object tuple into it, **it builds a tree structure**; _trie like_. The tree gets **as deep as the length of the hash and as wide as the varitey of symbols of the hash**. **The necessary hash** to build up each path to some pushed object, **can be exchanged**. **By default hashCC uses** the **adler** hash function to generate a **length of 24 and 10 defferent symbols {0-9}**; the build tree builds up **a space of dimension 24^10**. = 1000 0000 0000 0000 0000 0000 possibilities. However this is strongly dependent on the collision freeness of the hash function or its _collision quality_, respectively **.. have fun.**
@@ -23,7 +21,7 @@ Using some unix or GNU/Linux, try:
 
 **HASHCC is distributed under the MIT License (MIT); this file is part of.**
 
-**Copyright (c) 2008-2020 Christian (graetz23@gmail.com)**
+**Copyright (c) 2008-2024 Christian (graetz23@gmail.com)**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

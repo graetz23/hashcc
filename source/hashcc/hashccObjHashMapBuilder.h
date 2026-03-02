@@ -1,5 +1,6 @@
 /**
  * @file hashccObjHashMapBuilder.h
+ * @brief Builder class for creating hash map instances
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,13 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @class HASHCC::OBJ::HashMapBuilder
+ * @brief Builder for creating hash map instances.
+ * @ingroup OBJ
+ *
+ * Use this class to create hash map instances with different
+ * hash function strategies.
  */
 
 #ifndef __hashccObjHashMapBuilder_h__
@@ -45,15 +53,22 @@ namespace OBJ {
 
 #define _DEBUG_HASHCC_OBJ_HashMapBuilder_
 
-class /// class as pattern for following classes
-HashMapBuilder {
+/**
+ * @class HASHCC::OBJ::HashMapBuilder
+ * @brief Builder for creating hash map instances.
+ * @ingroup OBJ
+ */
+class HashMapBuilder {
  public:
 
-  HashMapBuilder( void ); /// constructor
-  virtual ~HashMapBuilder( void ); /// destructor
+  /** @brief Default constructor */
+  HashMapBuilder( void );
+  /** @brief Destructor */
+  virtual ~HashMapBuilder( void );
 
+  /** @brief Create a hash map of the specified type */
   template< typename K, typename V > HashMap< K, V >*
-  create( Type::HashMap hashMapType ); /// build the concrete HashMap object
+  create( Type::HashMap hashMapType );
 
 }; // class HashMapBuilder
 

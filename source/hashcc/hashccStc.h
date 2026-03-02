@@ -1,5 +1,6 @@
 /**
  * @file hashccStc.h
+ * @brief Static lookup tables for character sets
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,18 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @defgroup STC Static Character Tables
+ * @brief Static lookup tables for various character sets used in hashing.
+ *
+ * The STC namespace provides static character set lookup tables for:
+ * @li Binary (0,1)
+ * @li Quadruple (0-3)
+ * @li Octal (0-7)
+ * @li Decimal (0-9)
+ * @li Hexadecimal (0-9, a-f)
+ * @li Alphabetic (a-z)
+ * @li Alpha-numeric (a-z, 0-9)
  */
 
 #ifndef __hashccStc_h__

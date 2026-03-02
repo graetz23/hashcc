@@ -1,5 +1,6 @@
 /**
  * @file hashccTyp.h
+ * @brief Type namespace and tree structure includes
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,19 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @defgroup TYP Type System
+ * @brief Type namespace containing tree structures and key utilities.
+ *
+ * The TYP namespace provides the core type system for HASHCC, including:
+ * @li Tree data structures for hash storage
+ * @li Key conversion utilities
+ * @li Key testing utilities
+ *
+ * @li @ref TypTree - Trie-like tree structure
+ * @li @ref TypTreeController - Tree controller
+ * @li @ref TypKeyConv - Key conversion
+ * @li @ref TypKeyTest - Key testing
  */
 
 #ifndef __hashccTyp_h__
@@ -50,7 +64,7 @@ namespace HASHCC {
 
 /******************************************************************************/
 
-namespace TYP { /// namespace for types
+namespace TYP { /** @brief Namespace for type system and tree structures */
 
 /******************************************************************************/
 

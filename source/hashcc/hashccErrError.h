@@ -1,5 +1,6 @@
 /**
  * @file hashccErrError.h
+ * @brief Non-recoverable error exception class
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,13 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @class HASHCC::ERR::Error
+ * @brief Non-recoverable error exception.
+ * @ingroup ERR
+ *
+ * This exception class represents non-recoverable errors that should
+ * cause the program to terminate. It inherits from Exception.
  */
 
 #ifndef __hashccErrError_h__
@@ -44,22 +52,39 @@ namespace ERR {
 
 /******************************************************************************/
 
+/**
+ * @class HASHCC::ERR::Error
+ * @brief Non-recoverable error exception.
+ * @ingroup ERR
+ *
+ * This exception class represents non-recoverable errors that should
+ * cause the program to terminate. It inherits from Exception.
+ */
 class /// class for marking a non recoverable error
 Error : public Exception { // for real errors
  public:
 
-  Error( void ); /// constructor
-  Error( std::exception e ); /// constructor
-  Error( cChar* message ); /// constructor overloaded
-  Error( String message ); /// constructor overloaded
-  Error( String message, Int16 lineNo ); /// use __LINE__ @ lineNo
-  Error( String message, Char* fileName ); /// use __FILE__ @ fileName
-  Error( String message, Char* fileName, Int16 lineNo ); /// use __FILE__ @ fileName and __LINE__ @ lineNo
-  virtual ~Error( void ); /// destructor
+  /** @brief Default constructor */
+  Error( void ); 
+  /** @brief Construct from std::exception */
+  Error( std::exception e ); 
+  /** @brief Construct with C-string message */
+  Error( cChar* message ); 
+  /** @brief Construct with String message */
+  Error( String message ); 
+  /** @brief Construct with message and line number */
+  Error( String message, Int16 lineNo ); 
+  /** @brief Construct with message and filename */
+  Error( String message, Char* fileName ); 
+  /** @brief Construct with message, filename and line number */
+  Error( String message, Char* fileName, Int16 lineNo ); 
+  /** @brief Destructor */
+  virtual ~Error( void ); 
 
  protected:
 
-  virtual void mark( void ); /// mark an exception
+  /** @brief Marks the exception */
+  virtual void mark( void ); 
 
 }; // class Error
 

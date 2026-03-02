@@ -1,5 +1,6 @@
 /**
  * @file hashccDmy.h
+ * @brief Dummy/placeholder namespace and object includes
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,12 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @defgroup DMY Dummy Objects
+ * @brief Dummy/placeholder namespace for testing and development.
+ *
+ * The DMY namespace provides dummy/placeholder objects used for
+ * testing and development purposes.
  */
 
 #ifndef __hashccDmy_h__

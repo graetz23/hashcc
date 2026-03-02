@@ -1,5 +1,6 @@
 /**
  * @file hashccTypTreeLeaf.h
+ * @brief Tree leaf node template for storing objects
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,13 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @class HASHCC::TYP::TreeLeaf
+ * @brief Leaf node template for storing objects in the tree.
+ * @ingroup TYP
+ *
+ * TreeLeaf is a terminal node that stores an actual object (value)
+ * at the end of a hash path.
  */
 
 #ifndef __hashccTypTreeLeaf_h__
@@ -44,15 +52,25 @@ namespace TYP {
 
 /******************************************************************************/
 
-template<class T> struct /// multidimensional tree structure - a leaf
-TreeLeaf : public Tree {
+/**
+ * @struct HASHCC::TYP::TreeLeaf
+ * @brief Leaf node template for storing objects.
+ * @ingroup TYP
+ *
+ * @tparam T The type of object to store
+ */
+template<class T> struct TreeLeaf : public Tree {
  public:
 
-  TreeLeaf( void ); /// constructor
-  TreeLeaf( T object ); /// constructor
-  ~TreeLeaf( void ); /// destructor
+  /** @brief Default constructor */
+  TreeLeaf( void );
+  /** @brief Construct with object */
+  TreeLeaf( T object );
+  /** @brief Destructor */
+  ~TreeLeaf( void );
 
-  T* _o; /// glued object - by a pointer - to a tree lead
+  /** @brief Pointer to the stored object */
+  T* _o;
 
 }; // struct Tree
 

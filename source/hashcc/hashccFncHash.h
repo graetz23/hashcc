@@ -1,5 +1,6 @@
 /**
  * @file hashccFncHash.h
+ * @brief Hash function declarations
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,15 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @defgroup FncHash Hash Functions
+ * @brief Declarations for hash function implementations.
+ * @ingroup FNC
+ *
+ * Provides declarations for various hash function algorithms:
+ * @li ELF hash (10 decimal digits)
+ * @li Adler hash (24 decimal digits)
+ * @li FNV hash (24 decimal digits)
  */
 
 #ifndef __hashccFncHash_h__
@@ -44,15 +54,22 @@ namespace FNC {
 
 /******************************************************************************/
 
-String elf10_32( String key ); /// returns a hash of 10 decimal symbols
+/** @brief ELF hash function (10 decimal digits, 32-bit) */
+String elf10_32( String key );
 
-String adler24_16( String key ); /// returns a hash of 24 decimal symbols
-String adler24_32( String key ); /// returns a hash of 24 decimal symbols
-String adler24_64( String key ); /// returns a hash of 24 decimal symbols
+/** @brief Adler hash function (24 decimal digits, 16-bit) */
+String adler24_16( String key );
+/** @brief Adler hash function (24 decimal digits, 32-bit) */
+String adler24_32( String key );
+/** @brief Adler hash function (24 decimal digits, 64-bit) */
+String adler24_64( String key );
 
-String fnv24_16( String key ); /// returns a hash of 24 decimal symbols
-String fnv24_32( String key ); /// returns a hash of 24 decimal symbols
-String fnv24_64( String key ); /// returns a hash of 24 decimal symbols
+/** @brief FNV hash function (24 decimal digits, 16-bit) */
+String fnv24_16( String key );
+/** @brief FNV hash function (24 decimal digits, 32-bit) */
+String fnv24_32( String key );
+/** @brief FNV hash function (24 decimal digits, 64-bit) */
+String fnv24_64( String key );
 
 /******************************************************************************/
 

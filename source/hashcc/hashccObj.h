@@ -1,5 +1,6 @@
 /**
  * @file hashccObj.h
+ * @brief Object namespace and hash map includes
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,15 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @defgroup OBJ Hash Map Objects
+ * @brief Object namespace containing hash map implementations.
+ *
+ * The OBJ namespace provides hash map object implementations with various
+ * hash function strategies.
+ *
+ * @li @ref OBJ::HashMap - Base hash map class
+ * @li @ref OBJ::HashMapBuilder - Builder for creating hash maps
  */
 
 #ifndef __hashccObj_h__

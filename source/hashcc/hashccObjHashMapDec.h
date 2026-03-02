@@ -1,5 +1,6 @@
 /**
  * @file hashccObjHashMapDec.h
+ * @brief Base decimal hash map class template
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,15 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @class HASHCC::OBJ::HashMapDec
+ * @brief Base decimal hash map class.
+ * @ingroup OBJ
+ *
+ * @tparam K The key type
+ * @tparam V The value type
+ *
+ * Base class for decimal-based hash map implementations.
  */
 
 #ifndef __hashccObjHashMapDec_h__
@@ -42,13 +52,22 @@ namespace OBJ {
 
 #define _DEBUG_HASHCC_OBJ_HashMapDec_
 
-/// class as pattern for following classes
+/**
+ * @class HASHCC::OBJ::HashMapDec
+ * @brief Base decimal hash map class.
+ * @ingroup OBJ
+ *
+ * @tparam K The key type
+ * @tparam V The value type
+ */
 template<typename K, typename V> class
 HashMapDec : public HashMap<K,V> {
  public:
 
-  HashMapDec( void ); /// constructor
-  virtual ~HashMapDec( void ); /// destructor deletes all members for DEC
+  /** @brief Default constructor */
+  HashMapDec( void );
+  /** @brief Destructor */
+  virtual ~HashMapDec( void );
 
 }; // class HashMapDec
 

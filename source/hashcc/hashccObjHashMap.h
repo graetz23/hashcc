@@ -1,5 +1,6 @@
 /**
  * @file hashccObjHashMap.h
+ * @brief Base hash map class template
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,15 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @class HASHCC::OBJ::HashMap
+ * @brief Base hash map class template.
+ * @ingroup OBJ
+ *
+ * @tparam K The key type
+ * @tparam V The value type
+ *
+ * Provides the base interface for hash map implementations.
  */
 
 #ifndef __hashccObjHashMap_h__
@@ -49,27 +59,42 @@ typedef HASHCC::TYP::TreeController TreeController; // namespace typedef
 
 /******************************************************************************/
 
-/// class as pattern for following classes
+/**
+ * @class HASHCC::OBJ::HashMap
+ * @brief Base hash map class template.
+ * @ingroup OBJ
+ *
+ * @tparam K The key type
+ * @tparam V The value type
+ */
 template<typename K, typename V>
 class HashMap {
  public:
 
-  HashMap( void ); /// constructor
-  virtual ~HashMap( void ); /// destructor
+  /** @brief Default constructor */
+  HashMap( void );
+  /** @brief Destructor */
+  virtual ~HashMap( void );
 
-  Int32 size( void ); /// returns the number of stored objects
+  /** @brief Returns the number of stored objects */
+  Int32 size( void );
 
-  virtual V get( K key ) = 0; /// returns a stored object or throw ERR::Failure
+  /** @brief Returns a stored object for the given key */
+  virtual V get( K key ) = 0;
 
-  virtual V* put( K key, V value ) = 0; /// stores an object by key; returns an object pointer if key is occupied
+  /** @brief Stores an object by key; returns pointer if key exists */
+  virtual V* put( K key, V value ) = 0;
 
  protected:
 
-  // TODO think: why GNU/g++ does not allow to push those member up in heredity
-  Int32  _numberOfValues; /// no of stored objects
-  uInt16 _keySize; /// the used key size
-  Tree*  _tree; /// the used tree
-  TreeController* _treeController; /// the tree controller for it
+  /** @brief Number of stored objects */
+  Int32  _numberOfValues;
+  /** @brief The key size */
+  uInt16 _keySize;
+  /** @brief The tree structure */
+  Tree*  _tree;
+  /** @brief The tree controller */
+  TreeController* _treeController;
 
 }; // class HashMap
 

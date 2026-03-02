@@ -1,5 +1,6 @@
 /**
  * @file hashccErrFailure.h
+ * @brief Recoverable failure exception class
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,13 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @class HASHCC::ERR::Failure
+ * @brief Recoverable failure exception.
+ * @ingroup ERR
+ *
+ * This exception class represents recoverable failures that can be
+ * handled by the caller. It inherits from Exception.
  */
 
 #ifndef __hashccErrFailure_h__
@@ -44,22 +52,39 @@ namespace ERR {
 
 /******************************************************************************/
 
+/**
+ * @class HASHCC::ERR::Failure
+ * @brief Recoverable failure exception.
+ * @ingroup ERR
+ *
+ * This exception class represents recoverable failures that can be
+ * handled by the caller. It inherits from Exception.
+ */
 class /// class for marking a recoverable error
 Failure : public Exception { // for failure 2 be handled
  public:
 
-  Failure( void ); /// constructor
-  Failure( std::exception e ); /// constructor
-  Failure( cChar* message ); /// constructor overloaded
-  Failure( String message ); /// constructor overloaded
-  Failure( String message, Int16 lineNo ); /// use __LINE__ @ lineNo
-  Failure( String message, Char* fileName ); /// use __FILE__ @ fileName
-  Failure( String message, Char* fileName, Int16 lineNo ); /// use __FILE__ @ fileName and __LINE__ @ lineNo
-  virtual ~Failure( void ); /// destructor
+  /** @brief Default constructor */
+  Failure( void ); 
+  /** @brief Construct from std::exception */
+  Failure( std::exception e ); 
+  /** @brief Construct with C-string message */
+  Failure( cChar* message ); 
+  /** @brief Construct with String message */
+  Failure( String message ); 
+  /** @brief Construct with message and line number */
+  Failure( String message, Int16 lineNo ); 
+  /** @brief Construct with message and filename */
+  Failure( String message, Char* fileName ); 
+  /** @brief Construct with message, filename and line number */
+  Failure( String message, Char* fileName, Int16 lineNo ); 
+  /** @brief Destructor */
+  virtual ~Failure( void ); 
 
  protected:
 
-  virtual void mark( void ); /// mark an exception
+  /** @brief Marks the exception */
+  virtual void mark( void ); 
 
 }; // class Failure
 

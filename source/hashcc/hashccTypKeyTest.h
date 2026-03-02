@@ -1,5 +1,6 @@
 /**
  * @file hashccTypKeyTest.h
+ * @brief Key type validation utilities
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,13 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @defgroup TypKeyTest Key Validation
+ * @brief Key type validation utilities.
+ * @ingroup TYP
+ *
+ * Provides template functions for validating key types to ensure
+ * they are compatible with the hash map.
  */
 
 #ifndef __hashccTypKeyTest_h__

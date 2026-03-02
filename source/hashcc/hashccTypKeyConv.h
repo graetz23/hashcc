@@ -1,5 +1,6 @@
 /**
  * @file hashccTypKeyConv.h
+ * @brief Key conversion utilities
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,13 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @defgroup TypKeyConv Key Conversion
+ * @brief Key type conversion utilities.
+ * @ingroup TYP
+ *
+ * Provides template functions for converting various key types
+ * to string representation for hashing.
  */
 
 #ifndef __hashccTypKeyConv_h__

@@ -1,5 +1,6 @@
 /**
  * @file hashccDmyObject.h
+ * @brief Dummy object class for testing
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,12 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @class HASHCC::DMY::Object
+ * @brief Dummy object class for testing.
+ * @ingroup DMY
+ *
+ * A simple placeholder used object class for testing the hash map.
  */
 
 #ifndef __hashccDmyObject_h__
@@ -46,18 +53,28 @@ namespace DMY {
 
 typedef HASHCC::String String; // namespace typedef
 
-class /// class as pattern for following classes
-Object {
+/**
+ * @class HASHCC::DMY::Object
+ * @brief Dummy object class for testing.
+ * @ingroup DMY
+ */
+class Object {
  public:
 
-  Object( void ); /// constructor
-  Object( String string ); /// constructor
-  virtual ~Object( void ); /// destructor
+  /** @brief Default constructor */
+  Object( void );
+  /** @brief Construct with string */
+  Object( String string );
+  /** @brief Destructor */
+  virtual ~Object( void );
 
-  String getString( void ); /// returns stored string
-  void setString( String string ); /// stores a string
+  /** @brief Returns stored string */
+  String getString( void );
+  /** @brief Stores a string */
+  void setString( String string );
 
-  friend std::ostream& operator << ( std::ostream& s, Object& o ); /// std::cout
+  /** @brief Stream output operator */
+  friend std::ostream& operator << ( std::ostream& s, Object& o );
   friend std::ostream& operator << ( std::ostream& s, Object* o ); /// std::cout
 
  protected:

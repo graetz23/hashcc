@@ -1,5 +1,7 @@
 /**
- * @file hashccTypTree.h * @author Christian (graetz23@gmail.com)
+ * @file hashccTypTree.h
+ * @brief Trie-like tree structure for hash storage
+ * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
  *
@@ -22,6 +24,14 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @class HASHCC::TYP::Tree
+ * @brief Base tree structure for hash storage.
+ * @ingroup TYP
+ *
+ * This is the base struct for the trie-like tree structure used to store
+ * hash values. Each tree node can have multiple children representing
+ * different hash digits.
  */
 
 #ifndef __hashccTypTree_h__
@@ -51,12 +61,18 @@ namespace TYP {
 
 /******************************************************************************/
 
-struct /// multidimensional tree structure - base struct is of non template type
-Tree {
+/**
+ * @struct HASHCC::TYP::Tree
+ * @brief Base tree structure for hash storage.
+ * @ingroup TYP
+ */
+struct Tree {
  public:
 
-  Tree( void ); /// constructor
-  ~Tree( void ); /// destructor
+  /** @brief Default constructor */
+  Tree( void );
+  /** @brief Destructor */
+  ~Tree( void );
 
 }; // struct Tree
 

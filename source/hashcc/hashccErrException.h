@@ -1,5 +1,6 @@
 /**
  * @file hashccErrException.h
+ * @brief Base exception class for HASHCC
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,14 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @class HASHCC::ERR::Exception
+ * @brief Base exception class for all HASHCC exceptions.
+ * @ingroup ERR
+ *
+ * This is the base class for all exceptions in the HASHCC library.
+ * It provides basic exception handling functionality including
+ * message storage, reporting, and error output.
  */
 
 #ifndef __hashccErrException_h__
@@ -44,40 +53,73 @@ namespace ERR {
 
 /******************************************************************************/
 
+/**
+ * @defgroup CharTypes Character Types
+ * @brief Character type definitions for ERR namespace
+ */
+
+/** @brief Character type @ingroup CharTypes */
 typedef HASHCC::Char       Char; // stc namespace typedef
+/** @brief Constant character type @ingroup CharTypes */
 typedef HASHCC::cChar     cChar; // stc namespace typedef
+/** @brief String type @ingroup CharTypes */
 typedef HASHCC::String   String; // stc namespace typedef
 
 /******************************************************************************/
 
+/**
+ * @class HASHCC::ERR::Exception
+ * @brief Base exception class for all HASHCC exceptions.
+ * @ingroup ERR
+ *
+ * This is the base class for all exceptions in the HASHCC library.
+ * It provides basic exception handling functionality including
+ * message storage, reporting, and error output.
+ */
 class /// base class for errors
 Exception {
  public:
 
-  Exception( void ); /// constructor
-  Exception( std::exception stdException ); /// constructor
-  Exception( cChar* message ); /// constructor overloaded
-  Exception( String message ); /// constructor overloaded
-  Exception( String message, Int16 lineNo ); /// use __LINE__ @ lineNo
-  Exception( String message, Char* fileName ); /// use __FILE__ @ fileName
-  Exception( String message, Char* fileName, Int16 lineNo ); /// use __FILE__ @ fileName and __LINE__ @ lineNo
-  virtual ~Exception( void ); /// destructor
+  /** @brief Default constructor */
+  Exception( void ); 
+  /** @brief Construct from std::exception */
+  Exception( std::exception stdException ); 
+  /** @brief Construct with C-string message */
+  Exception( cChar* message ); 
+  /** @brief Construct with String message */
+  Exception( String message ); 
+  /** @brief Construct with message and line number */
+  Exception( String message, Int16 lineNo ); 
+  /** @brief Construct with message and filename */
+  Exception( String message, Char* fileName ); 
+  /** @brief Construct with message, filename and line number */
+  Exception( String message, Char* fileName, Int16 lineNo ); 
+  /** @brief Destructor */
+  virtual ~Exception( void ); 
 
-  String declare( void ) const; /// returns message as std::string
-  void report( void ) const; /// message to console
-  void stop( void ) const; /// message to console and wait for enter
-  void nuke( void ) const; /// do a nuke and melt down afterwards
+  /** @brief Returns the exception message as std::string */
+  String declare( void ) const; 
+  /** @brief Reports the exception message to console */
+  void report( void ) const; 
+  /** @brief Reports to console and waits for user input */
+  void stop( void ) const; 
+  /** @brief Reports and terminates the program */
+  void nuke( void ) const; 
 
-  friend std::ostream& operator << ( std::ostream& outputStream, Exception& exception ); /// cout
-  friend std::ostream& operator << ( std::ostream& outputStream, Exception* exception ); /// cout
+  /** @brief Stream output operator */
+  friend std::ostream& operator << ( std::ostream& outputStream, Exception& exception ); 
+  /** @brief Stream output operator for pointer */
+  friend std::ostream& operator << ( std::ostream& outputStream, Exception* exception ); 
 
  protected:
 
-  String _message; /// the generated exception message
+  /** @brief The exception message */
+  String _message; 
 
  private:
 
-  virtual void mark( void ); /// mark exception
+  /** @brief Marks the exception (internal use) */
+  virtual void mark( void ); 
 
 }; // class Exception
 

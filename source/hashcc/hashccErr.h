@@ -1,5 +1,6 @@
 /**
  * @file hashccErr.h
+ * @brief Error handling namespace and includes
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,16 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @defgroup ERR Error Handling
+ * @brief Exception classes for error handling in HASHCC.
+ *
+ * The ERR namespace provides exception classes for handling recoverable
+ * and non-recoverable errors in the HASHCC library.
+ *
+ * @li @ref ERR::Exception - Base exception class
+ * @li @ref ERR::Failure - Recoverable exceptions
+ * @li @ref ERR::Error - Non-recoverable errors
  */
 #ifndef __hashccErr_h__
 #define __hashccErr_h__

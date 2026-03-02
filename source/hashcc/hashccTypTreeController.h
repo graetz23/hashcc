@@ -1,5 +1,6 @@
 /**
  * @file hashccTypTreeController.h
+ * @brief Tree controller for managing hash tree operations
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,13 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @class HASHCC::TYP::TreeController
+ * @brief Controller for managing tree operations.
+ * @ingroup TYP
+ *
+ * Provides methods for storing, retrieving, and deleting objects
+ * in the hash tree structure with various character set support.
  */
 
 #ifndef __hashccTypTreeController_h__

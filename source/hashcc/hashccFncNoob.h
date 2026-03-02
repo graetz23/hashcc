@@ -1,5 +1,6 @@
 /**
  * @file hashccFncNoob.h
+ * @brief Simple/noob hash function namespace
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,12 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @defgroup FncNoob Noob Hash Functions
+ * @brief Simple hash function for testing.
+ * @ingroup FNC
+ *
+ * Provides simple hash functions for testing and development purposes.
  */
 
 #ifndef __hashccFncNoob_h__

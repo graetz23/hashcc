@@ -1,5 +1,6 @@
 /**
  * @file hashccFnc.h
+ * @brief Function namespace and hash function includes
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,15 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @defgroup FNC Hash Functions
+ * @brief Function namespace containing hash function implementations.
+ *
+ * The FNC namespace provides various hash function implementations:
+ * @li FNV (Fowler-Noll-Vo) hash
+ * @li Adler hash
+ * @li ELF hash
+ * @li Noob (simple) hash
  */
 
 #ifndef __hashccFnc_h__

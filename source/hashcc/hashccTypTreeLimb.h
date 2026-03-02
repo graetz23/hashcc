@@ -1,5 +1,6 @@
 /**
  * @file hashccTypTreeLimb.h
+ * @brief Tree limb/branch node template for tree structure
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,15 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @class HASHCC::TYP::TreeLimb
+ * @brief Branch node template for the tree structure.
+ * @ingroup TYP
+ *
+ * TreeLimb is an intermediate node that contains child nodes,
+ * representing a digit position in the hash.
+ *
+ * @tparam T The type of objects stored in leaf nodes
  */
 
 #ifndef __hashccTypTreeLimb_h__
@@ -44,15 +54,25 @@ namespace TYP {
 
 /******************************************************************************/
 
-template<class T> struct /// multidimensional tree structure - a limb
-TreeLimb : public Tree {
+/**
+ * @struct HASHCC::TYP::TreeLimb
+ * @brief Branch node template for tree structure.
+ * @ingroup TYP
+ *
+ * @tparam T The type of objects stored in leaf nodes
+ */
+template<class T> struct TreeLimb : public Tree {
  public:
 
-  TreeLimb( void ); /// constructor
-  TreeLimb( cuChar numberOfTrees ); /// constructor
-  ~TreeLimb( void ); /// destructor
+  /** @brief Default constructor */
+  TreeLimb( void );
+  /** @brief Construct with number of child trees */
+  TreeLimb( cuChar numberOfTrees );
+  /** @brief Destructor */
+  ~TreeLimb( void );
 
-  Tree** _t; /// following limbs till leaveas are reached
+  /** @brief Array of child tree pointers */
+  Tree** _t;
 
 }; // struct Tree
 

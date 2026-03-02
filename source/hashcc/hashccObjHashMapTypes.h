@@ -1,5 +1,6 @@
 /**
  * @file hashccObjHashMapTypes.h
+ * @brief Hash map type enumerations
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,15 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @defgroup OBJTypes Hash Map Types
+ * @brief Enumerations for hash map types.
+ * @ingroup OBJ
+ *
+ * Defines the available hash map implementations:
+ * @li Dec10Elf - 10-digit decimal ELF hash
+ * @li Dec24Adler - 24-digit decimal Adler hash
+ * @li Dec24Fnv - 24-digit decimal FNV hash
  */
 
 #ifndef __hashccObjHashMapTypes_h__
@@ -44,11 +54,15 @@ namespace Type {
 
 /******************************************************************************/
 
-enum
-HashMap {
-  Dec10Elf,
-  Dec24Adler,
-  Dec24Fnv
+/**
+ * @enum HASHCC::OBJ::Type::HashMap
+ * @brief Hash map type enumeration
+ * @ingroup OBJ
+ */
+enum HashMap {
+  Dec10Elf,   /**< @brief 10-digit decimal ELF hash */
+  Dec24Adler, /**< @brief 24-digit decimal Adler hash */
+  Dec24Fnv    /**< @brief 24-digit decimal FNV hash */
 }; // enum HashMap
 
 /******************************************************************************/

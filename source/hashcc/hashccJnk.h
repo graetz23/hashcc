@@ -1,5 +1,6 @@
 /**
  * @file hashccJnk.h
+ * @brief Junk/utility namespace for experimental code
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,15 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @defgroup JNK Junk Utilities
+ * @brief Junk/utility namespace for experimental code and conversions.
+ *
+ * The JNK namespace provides utility functions for:
+ * @li Binary conversion
+ * @li Integer to string conversion
+ * @li Hexadecimal conversion
+ * @li Bit manipulation
  */
 
 #ifndef __hashccJnk_h__
@@ -50,28 +60,40 @@ namespace JNK {
 
 /******************************************************************************/
 
-typedef HASHCC::Char       Char; // stc namespace typedef
-typedef HASHCC::uChar     uChar; // stc namespace typedef
-typedef HASHCC::cChar     cChar; // stc namespace typedef
-typedef HASHCC::cuChar   cuChar; // stc namespace typedef
-typedef HASHCC::String   String; // stc namespace typedef
+typedef HASHCC::Char       Char; /**< @brief Character type */
+typedef HASHCC::uChar     uChar; /**< @brief Unsigned character type */
+typedef HASHCC::cChar     cChar; /**< @brief Constant character type */
+typedef HASHCC::cuChar   cuChar; /**< @brief Constant unsigned character */
+typedef HASHCC::String   String; /**< @brief String type */
 
 /******************************************************************************/
 
+/** @brief Convert unsigned 16-bit integer to binary string */
 String cvt_binary( uInt16 input );
 
 /******************************************************************************/
 
-String int2str(  Int16 decimalValue ); // convert DEC to String
-String int2str(  Int32 decimalValue ); // convert DEC to String
-String int2str(  Int64 decimalValue ); // convert DEC to String
-String dec2hex(  Int16 decimalValue ); // convert DEC to HEX
+/** @brief Convert 16-bit integer to string */
+String int2str(  Int16 decimalValue );
+/** @brief Convert 32-bit integer to string */
+String int2str(  Int32 decimalValue );
+/** @brief Convert 64-bit integer to string */
+String int2str(  Int64 decimalValue );
+/** @brief Convert decimal to hexadecimal string */
+String dec2hex(  Int16 decimalValue );
+/** @brief Convert character to bit string */
 String char2bit( Char character );
+/** @brief Convert 16-bit integer to bit string */
 String int2bit(  Int16 value );
+/** @brief Convert unsigned 16-bit integer to bit string */
 String int2bit(  uInt16 value );
+/** @brief Convert 32-bit integer to bit string */
 String int2bit(  Int32 value );
+/** @brief Convert unsigned 32-bit integer to bit string */
 String int2bit(  uInt32 value );
+/** @brief Convert 64-bit integer to bit string */
 String int2bit(  Int64 value );
+/** @brief Convert unsigned 64-bit integer to bit string */
 String int2bit(  uInt64 value );
 
 /******************************************************************************/

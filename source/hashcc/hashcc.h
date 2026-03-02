@@ -1,5 +1,6 @@
 /**
  * @file hashcc.h
+ * @brief Main include file for HASHCC library
  * @author Christian (graetz23@gmail.com)
  *
  * HASHCC is distributed under the MIT License (MIT); this file is part of.
@@ -23,6 +24,21 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
+ *
+ * @defgroup HASHCC HASHCC Library
+ * @brief Template-based C++ Hash Map Library
+ *
+ * HASHCC is an object-oriented C++ hash map library based on C++ templates.
+ * It implements a trie-like hash tree data structure, providing efficient
+ * key-value storage with customizable hash functions.
+ *
+ * @li @ref Types - Core type definitions
+ * @li @ref STC - Static character tables
+ * @li @ref TYP - Type system and tree structures
+ * @li @ref ERR - Error handling
+ * @li @ref FNC - Hash functions
+ * @li @ref DMY - Dummy/placeholder objects
+ * @li @ref OBJ - Hash map objects
  */
 
 #ifndef __hashcc_h__
@@ -42,16 +58,21 @@
 
 namespace HASHCC {
 
-/// use and share by the MIT License (MIT)
+/** @brief License identifier */
 #define _HASHCC_LICENSE_ "MIT"
 
-/// from http://www.kleimo.com/random/name.cfm female, 1, 99
-// Pauletta Freshley 20090926 0.00
-// Deeaan Lampel 20160106 0.10
-#define _HASHCC_PACKAGE_ "Agnes Newton" // since 20200307
+/**
+ * @brief Package name
+ * @details From http://www.kleimo.com/random/name.cfm female, 1, 99
+ * - Pauletta Freshley 20090926 0.00
+ * - Deeaan Lampel 20160106 0.10
+ */
+#define _HASHCC_PACKAGE_ "Agnes Newton"
 
-/// first load test are done for prototype of binary hash function and tree
+/** @brief Version number */
 #define _HASHCC_VERSION_NO_ "0.20"
+
+/** @brief Version date (YYYYMMDD) */
 #define _HASHCC_VERSION_DATE_ 20200307
 
 } // namespace HASHCC

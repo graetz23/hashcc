@@ -30,13 +30,13 @@
 
 /******************************************************************************/
 
-#include "./hashccTyp.h" // HASHCC::TYP::
-#include "./hashccErr.h" // HASHCC::ERR::
-#include "./hashccFnc.h" // HASHCC::FNC::
-#include "./hashccDmy.h" // HASHCC::DMY::
-#include "./hashccObj.h" // HASHCC::OBJ::
-#include "./hashccJnk.h" // HASHCC::JNK::
-#include "./hashccTypTreeController.h" // HASHCC::TYP::TreeController
+#include "./hashccTyp.h"
+#include "./hashccErr.h"
+#include "./hashccFnc.h"
+#include "./hashccDmy.h"
+#include "./hashccObj.h"
+#include "./hashccJnk.h"
+#include "./hashccTypTreeController.h"
 
 /******************************************************************************/
 
@@ -48,12 +48,12 @@ namespace TEST {
 
 #define _DEBUG_HASHCC_Test_
 
-void test( void ); /// tests the TreeController and the Tree
-void testStc( void ); /// tests HASHCC::STC:: statics
-void testHash( void ); // testing all hashing function
-void testHashFnv( void ); /// tests HASHCC::FNC:: hash functions
-void testHashAdler( void ); /// tests HASHCC::FNC:: hash functions
-void testHashMap( OBJ::Type::HashMap hashMapType ); /// testing for different keys and value types
+void test( void );
+void testStc( void );
+void testHash( void );
+void testHashFnv( void );
+void testHashAdler( void );
+void testHashMap( OBJ::Type::HashMap hashMapType );
 
 /******************************************************************************/
 

@@ -37,7 +37,6 @@
 #include "./hashccFnc.h"   // HASHCC::FNC::
 #include "./hashccDmy.h"   // HASHCC::DMY::
 #include "./hashccObj.h"   // HASHCC::OBJ::
-#include "./hashccTest.h"  // HASHCC::TEST::
 
 /******************************************************************************/
 

@@ -29,75 +29,20 @@
 #error compiler is not a C++ one
 #endif
 
-/******************************************************************************/
+#include "./hashcc/hashcc.h"
 
-#include "./hashcc/hashcc.h" // HASHCC::
-
-/******************************************************************************/
-
-int // main
+int
 main( int argc, char** argv ) {
+  (void)argc;
+  (void)argv;
 
-  argc = 0;            // due 2 W4 - MSVS annoys me if not used
-  argv = 0;            // due 2 W4 - MSVS annoys me if not used
+  std::cout << "HASHCC::" << std::endl;
+  std::cout << "package " << _HASHCC_PACKAGE_ << std::endl;
+  std::cout << "version " << _HASHCC_VERSION_NO_ << " " << _HASHCC_VERSION_DATE_ << std::endl;
+  std::cout << "built   " << _HASHCC_BUILT_DATE_ << " " << _HASHCC_BUILT_TIME_ << std::endl;
+  std::cout << std::endl;
 
-  try { // try everything ~8>
-
-    std::cout << "HASHCC::" << std::endl << std::flush;
-
-    std::cout << "package" << " " << _HASHCC_PACKAGE_ << std::endl
-        << std::flush;
-
-    std::cout << "version" << " " << _HASHCC_VERSION_NO_ << " "
-        << _HASHCC_VERSION_DATE_ << std::endl << std::flush;
-
-    std::cout << "built  " << " " << _HASHCC_BUILT_DATE_ << " "
-        << _HASHCC_BUILT_TIME_ << std::endl << std::flush;
-
-    std::cout << std::endl << std::flush;
-
-    // /// //// HASHCC::TEST //// /// //
-    HASHCC::TEST::testStc( );
-    std::cout << std::endl << std::flush;
-
-    // /// //// HASHCC::TEST //// /// //
-    std::cout << "testing hashes ... " << std::flush;
-    HASHCC::TEST::testHash( );
-    std::cout << "done" << std::endl << std::flush;
-    std::cout << std::endl << std::flush;
-
-    // /// //// HASHCC::TEST //// /// //
-    // HASHCC::TEST::testHashMap( HASHCC::OBJ::Type::Dec10Elf );
-    // std::cout << std::endl << std::flush;
-
-    // /// //// HASHCC::TEST //// /// //
-    // HASHCC::TEST::testHashMap( HASHCC::OBJ::Type::Dec24Adler );
-    // std::cout << std::endl << std::flush;
-
-    // /// //// HASHCC::TEST //// /// //
-    HASHCC::TEST::testHashMap( HASHCC::OBJ::Type::Dec24Fnv );
-    std::cout << std::endl << std::flush;
-
-    // /// //// HASHCC::TEST //// /// //
-    // HASHCC::TEST::test( );
-    // std::cout << std::endl << std::flush;
-
-    std::cout << "done" << std::endl << std::flush;
-
-  }                    // HASHCC exception class
-  catch( HASHCC::ERR::Exception& caughtException ) {
-    caughtException.report( );       // break it down
-  }                    // standard exception class
-  catch( std::exception& caughtStdException ) {
-    std::cout << "std::exception caught:" << std::endl << std::flush;
-    std::cout << caughtStdException.what( ) << std::endl << std::flush;
-  }                    // any other exception thrown
-  catch( ... ) {
-    std::cout << "Strange exception caught:" << std::endl << std::flush;
-  } // try
+  std::cout << "Run ./hashcc-test for unit tests" << std::endl;
 
   return 0;
-
-} // main
-
-/****************************************************************************/
+}

@@ -38,8 +38,6 @@ set(SOURCES
     source/hashcc/hashccObjHashMapDec24Adler.cpp
     source/hashcc/hashccObjHashMapBuilder.cpp
     source/hashcc/hashccJnk.cpp
-    source/hashcc/hashccJnkTest.cpp
-    source/hashcc/hashccTest.cpp
     source/main.cpp
 )
 
@@ -69,8 +67,6 @@ set(TEST_SOURCES
     source/hashcc/hashccObjHashMapDec24Adler.cpp
     source/hashcc/hashccObjHashMapBuilder.cpp
     source/hashcc/hashccJnk.cpp
-    source/hashcc/hashccJnkTest.cpp
-    source/hashcc/hashccTest.cpp
     source/hashcc/hashccUnitTest.cpp
 )
 

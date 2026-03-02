@@ -1,7 +1,9 @@
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch_test_macros.hpp>
+#include <catch2/benchmark/catch_benchmark.hpp>
 #include <string>
 #include <sstream>
+#include <chrono>
 
 #include "./hashccTyp.h"
 #include "./hashccFnc.h"
@@ -364,5 +366,209 @@ TEST_CASE("HashMap zero key", "[hashmap][edge]") {
 
   REQUIRE(map->get(static_cast<Int16>(0)) == "zero value");
 
+  delete map;
+}
+
+TEST_CASE("HashMap performance 1M inserts with DMY::Object", "[hashmap][perf][insert]") {
+  std::cout << "\n  [PERF] Starting 1M insert test..." << std::endl;
+  OBJ::HashMapBuilder builder;
+  OBJ::HashMap<Int32, DMY::Object*>* map = builder.create<Int32, DMY::Object*>(OBJ::Type::Dec24Fnv);
+
+  auto start = std::chrono::high_resolution_clock::now();
+
+  for (Int32 i = 0; i < 1000000; i++) {
+    DMY::Object* obj = new DMY::Object("test");
+    map->put(i, obj);
+  }
+
+  auto end = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+
+  std::cout << "\n  [PERF] Insert 1M objects (FNV): " << duration.count() << " ms" << std::endl;
+
+  for (Int32 i = 0; i < 1000000; i++) {
+    delete map->get(i);
+  }
+  delete map;
+}
+
+TEST_CASE("HashMap performance 2M inserts with DMY::Object", "[hashmap][perf][insert]") {
+  std::cout << "\n  [PERF] Starting 2M insert test..." << std::endl;
+  OBJ::HashMapBuilder builder;
+  OBJ::HashMap<Int32, DMY::Object*>* map = builder.create<Int32, DMY::Object*>(OBJ::Type::Dec24Fnv);
+
+  auto start = std::chrono::high_resolution_clock::now();
+
+  for (Int32 i = 0; i < 2000000; i++) {
+    DMY::Object* obj = new DMY::Object("test");
+    map->put(i, obj);
+  }
+
+  auto end = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+
+  std::cout << "\n  [PERF] Insert 2M objects (FNV): " << duration.count() << " ms" << std::endl;
+
+  for (Int32 i = 0; i < 2000000; i++) {
+    delete map->get(i);
+  }
+  delete map;
+}
+
+TEST_CASE("HashMap performance 4M inserts with DMY::Object", "[hashmap][perf][insert]") {
+  std::cout << "\n  [PERF] Starting 4M insert test..." << std::endl;
+  OBJ::HashMapBuilder builder;
+  OBJ::HashMap<Int32, DMY::Object*>* map = builder.create<Int32, DMY::Object*>(OBJ::Type::Dec24Fnv);
+
+  auto start = std::chrono::high_resolution_clock::now();
+
+  for (Int32 i = 0; i < 4000000; i++) {
+    DMY::Object* obj = new DMY::Object("test");
+    map->put(i, obj);
+  }
+
+  auto end = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+
+  std::cout << "\n  [PERF] Insert 4M objects (FNV): " << duration.count() << " ms" << std::endl;
+
+  for (Int32 i = 0; i < 4000000; i++) {
+    delete map->get(i);
+  }
+  delete map;
+}
+
+TEST_CASE("HashMap performance 8M inserts with DMY::Object", "[hashmap][perf][insert]") {
+  std::cout << "\n  [PERF] Starting 8M insert test..." << std::endl;
+  OBJ::HashMapBuilder builder;
+  OBJ::HashMap<Int32, DMY::Object*>* map = builder.create<Int32, DMY::Object*>(OBJ::Type::Dec24Fnv);
+
+  auto start = std::chrono::high_resolution_clock::now();
+
+  for (Int32 i = 0; i < 8000000; i++) {
+    DMY::Object* obj = new DMY::Object("test");
+    map->put(i, obj);
+  }
+
+  auto end = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+
+  std::cout << "\n  [PERF] Insert 8M objects (FNV): " << duration.count() << " ms" << std::endl;
+
+  for (Int32 i = 0; i < 8000000; i++) {
+    delete map->get(i);
+  }
+  delete map;
+}
+
+TEST_CASE("HashMap performance retrieve 1M objects", "[hashmap][perf][retrieve]") {
+  std::cout << "\n  [PERF] Starting retrieve 1M test..." << std::endl;
+  OBJ::HashMapBuilder builder;
+  OBJ::HashMap<Int32, DMY::Object*>* map = builder.create<Int32, DMY::Object*>(OBJ::Type::Dec24Fnv);
+
+  for (Int32 i = 0; i < 1000000; i++) {
+    DMY::Object* obj = new DMY::Object("test");
+    map->put(i, obj);
+  }
+
+  auto start = std::chrono::high_resolution_clock::now();
+
+  for (Int32 i = 0; i < 1000000; i++) {
+    DMY::Object* retrieved = map->get(i);
+    (void)retrieved;
+  }
+
+  auto end = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+
+  std::cout << "\n  [PERF] Retrieve 1M objects: " << duration.count() << " ms" << std::endl;
+
+  for (Int32 i = 0; i < 1000000; i++) {
+    delete map->get(i);
+  }
+  delete map;
+}
+
+TEST_CASE("HashMap performance retrieve 2M objects", "[hashmap][perf][retrieve]") {
+  std::cout << "\n  [PERF] Starting retrieve 2M test..." << std::endl;
+  OBJ::HashMapBuilder builder;
+  OBJ::HashMap<Int32, DMY::Object*>* map = builder.create<Int32, DMY::Object*>(OBJ::Type::Dec24Fnv);
+
+  for (Int32 i = 0; i < 2000000; i++) {
+    DMY::Object* obj = new DMY::Object("test");
+    map->put(i, obj);
+  }
+
+  auto start = std::chrono::high_resolution_clock::now();
+
+  for (Int32 i = 0; i < 2000000; i++) {
+    DMY::Object* retrieved = map->get(i);
+    (void)retrieved;
+  }
+
+  auto end = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+
+  std::cout << "\n  [PERF] Retrieve 2M objects: " << duration.count() << " ms" << std::endl;
+
+  for (Int32 i = 0; i < 2000000; i++) {
+    delete map->get(i);
+  }
+  delete map;
+}
+
+TEST_CASE("HashMap performance retrieve 4M objects", "[hashmap][perf][retrieve]") {
+  std::cout << "\n  [PERF] Starting retrieve 4M test..." << std::endl;
+  OBJ::HashMapBuilder builder;
+  OBJ::HashMap<Int32, DMY::Object*>* map = builder.create<Int32, DMY::Object*>(OBJ::Type::Dec24Fnv);
+
+  for (Int32 i = 0; i < 4000000; i++) {
+    DMY::Object* obj = new DMY::Object("test");
+    map->put(i, obj);
+  }
+
+  auto start = std::chrono::high_resolution_clock::now();
+
+  for (Int32 i = 0; i < 4000000; i++) {
+    DMY::Object* retrieved = map->get(i);
+    (void)retrieved;
+  }
+
+  auto end = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+
+  std::cout << "\n  [PERF] Retrieve 4M objects: " << duration.count() << " ms" << std::endl;
+
+  for (Int32 i = 0; i < 4000000; i++) {
+    delete map->get(i);
+  }
+  delete map;
+}
+
+TEST_CASE("HashMap performance retrieve 8M objects", "[hashmap][perf][retrieve]") {
+  std::cout << "\n  [PERF] Starting retrieve 8M test..." << std::endl;
+  OBJ::HashMapBuilder builder;
+  OBJ::HashMap<Int32, DMY::Object*>* map = builder.create<Int32, DMY::Object*>(OBJ::Type::Dec24Fnv);
+
+  for (Int32 i = 0; i < 8000000; i++) {
+    DMY::Object* obj = new DMY::Object("test");
+    map->put(i, obj);
+  }
+
+  auto start = std::chrono::high_resolution_clock::now();
+
+  for (Int32 i = 0; i < 8000000; i++) {
+    DMY::Object* retrieved = map->get(i);
+    (void)retrieved;
+  }
+
+  auto end = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+
+  std::cout << "\n  [PERF] Retrieve 8M objects: " << duration.count() << " ms" << std::endl;
+
+  for (Int32 i = 0; i < 8000000; i++) {
+    delete map->get(i);
+  }
   delete map;
 }

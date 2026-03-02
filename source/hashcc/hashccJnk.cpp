@@ -145,8 +145,11 @@ int2bit( uInt64 value ) {
 String
 dec2hex2( Int16 decimalValue ) {
   String hexString;
-  for( int bitPosition = 2 * sizeof( int ) - 1; bitPosition >= 0; bitPosition-- )
-    hexString.append( (Char*)("0123456789ABCDEF"[ ( ( decimalValue >> bitPosition * 4 ) & 0xF ) ]) );
+  const char* hexChars = "0123456789ABCDEF";
+  for( int bitPosition = 2 * sizeof( int ) - 1; bitPosition >= 0; bitPosition-- ) {
+    char digit = hexChars[ ( ( decimalValue >> bitPosition * 4 ) & 0xF ) ];
+    hexString.append( 1, digit );
+  }
   return hexString;
 } // dec2hex2
 

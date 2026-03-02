@@ -41,17 +41,17 @@ Exception::Exception( void ) {
 } // Exception::Exception
 
 // constructor overloaded
-Exception::Exception( std::exception e ) : _message( e.what( ) ) { 
+Exception::Exception( std::exception stdException ) : _message( stdException.what( ) ) {
   mark( );
 } // Exception::Exception
 
 // constructor overloaded
-Exception::Exception( cChar* message ) : _message( message ) { 
+Exception::Exception( cChar* message ) : _message( message ) {
   mark( );
 } // Exception::Exception
 
 // constructor overloaded
-Exception::Exception( String message ) : _message( message ) { 
+Exception::Exception( String message ) : _message( message ) {
   mark( );
 } // Exception::Exception
 
@@ -134,24 +134,24 @@ Exception::nuke( void ) const {
 /******************************************************************************/
 
 std::ostream& // for std::cout
-operator << ( std::ostream& s, Exception& e ) {
-  s << e._message << std::endl << std::flush;
-  return s;
-} // Exception::operator << 
+operator << ( std::ostream& outputStream, Exception& exception ) {
+  outputStream << exception._message << std::endl << std::flush;
+  return outputStream;
+} // Exception::operator <<
 
 std::ostream& // for std::cout
-operator << ( std::ostream& s, Exception* e ) {
-  s << e->_message << std::endl << std::flush;
-  return s;
-} // Exception::operator << 
+operator << ( std::ostream& outputStream, Exception* exception ) {
+  outputStream << exception->_message << std::endl << std::flush;
+  return outputStream;
+} // Exception::operator <<
 
 /******************************************************************************/
 
 void // mark exception
 Exception::mark( void ) {
-  String tmp = "HASHCC::ERR::Exception - ";
-  tmp.append( _message );
-  _message = tmp;
+  String tempMessage = "HASHCC::ERR::Exception - ";
+  tempMessage.append( _message );
+  _message = tempMessage;
 } // Exception::mark
 
 /******************************************************************************/

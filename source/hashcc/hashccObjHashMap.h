@@ -66,10 +66,10 @@ class HashMap {
  protected:
 
   // TODO think: why GNU/g++ does not allow to push those member up in heredity
-  Int32  _noOfVal; /// no of stored objects
+  Int32  _numberOfValues; /// no of stored objects
   uInt16 _keySize; /// the used key size
   Tree*  _tree; /// the used tree
-  TreeController* _treeC; /// the tree controller for it
+  TreeController* _treeController; /// the tree controller for it
 
 }; // class HashMap
 
@@ -78,8 +78,8 @@ class HashMap {
 template<typename K, typename V> /// constructor
 HashMap< K, V >::HashMap( void ) {
   TYP::keyTest<K>( ); // throws ERR::Error if key data type is not available
-  this->_noOfVal = 0; // set number of stored data objects to zero
-  this->_treeC = new TreeController( ); // create a the tree controller
+  this->_numberOfValues = 0; // set number of stored data objects to zero
+  this->_treeController = new TreeController( ); // create a the tree controller
 } // HashMap
 
 template<typename K, typename V> /// destructor
@@ -92,7 +92,7 @@ HashMap< K, V >::~HashMap( void ) {
 template<typename K, typename V>
 Int32 /// returns the no of stored objects
 HashMap< K, V >::size( void ) {
-  return this->_noOfVal;
+  return this->_numberOfValues;
 } // HashMap<T>::size
 
 /******************************************************************************/

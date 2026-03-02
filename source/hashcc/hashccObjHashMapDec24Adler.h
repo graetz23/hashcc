@@ -77,14 +77,14 @@ HashMapDec24Adler<K,V>::~HashMapDec24Adler( void ) {
 template<typename K, typename V> V /// returns a stored object
 HashMapDec24Adler<K,V>::get( K key ) {
 
-  String strKey = TYP::keyConv<K>( key );
+  String stringKey = TYP::keyConv<K>( key );
 
-  String strHash = FNC::adler24_16( strKey );
-  Char* charHash = (Char*)strHash.c_str( );
+  String stringHash = FNC::adler24_16( stringKey );
+  Char* charArrayHash = (Char*)stringHash.c_str( );
 
   // Tree* tree = this->_tree; // GNU/g++ work around ~8>
-  TreeController* treeC = this->_treeC; // GNU/g++ work around ~8>
-  V value = treeC->getDec<V>( this->_tree, charHash, this->_keySize );
+  TreeController* treeController = this->_treeController; // GNU/g++ work around ~8>
+  V value = treeController->getDec<V>( this->_tree, charArrayHash, this->_keySize );
   // this->_tree = tree; // GNU/g++ work around ~8>
 
   return value;
@@ -94,25 +94,25 @@ HashMapDec24Adler<K,V>::get( K key ) {
 template<typename K, typename V> V* /// stores an object
 HashMapDec24Adler<K,V>::put( K key, V value ) {
 
-  String strKey = TYP::keyConv<K>( key );
+  String stringKey = TYP::keyConv<K>( key );
 
-  String strHash = FNC::adler24_16( strKey );
-  Char* charHash = (Char*)strHash.c_str( );
+  String stringHash = FNC::adler24_16( stringKey );
+  Char* charArrayHash = (Char*)stringHash.c_str( );
 
   // Tree* tree = this->_tree; // GNU/g++ work around ~8>
-  TreeController* treeC = this->_treeC; // GNU/g++ work around ~8>
-  V* pValue = treeC->storeDec<V>( this->_tree, value, charHash, this->_keySize );
+  TreeController* treeController = this->_treeController; // GNU/g++ work around ~8>
+  V* previousValuePointer = treeController->storeDec<V>( this->_tree, value, charArrayHash, this->_keySize );
   // this->_tree = tree; // GNU/g++ work around ~8>
 
-  if( pValue != 0 ) {
-    String msg( "HashMapDec24Adler::put - hash map is for key: \"" );
-    msg.append( strKey );
-    msg.append( "\" already occupied!" );
+  if( previousValuePointer != 0 ) {
+    String errorMessage( "HashMapDec24Adler::put - hash map is for key: \"" );
+    errorMessage.append( stringKey );
+    errorMessage.append( "\" already occupied!" );
     throw ERR::Failure(  );
   }
-  this->_noOfVal++;
+  this->_numberOfValues++;
 
-  return pValue; // is null pointer if hash is not occupied
+  return previousValuePointer; // is null pointer if hash is not occupied
 
 } // HashMapDec24Adler<T>::put
 

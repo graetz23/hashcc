@@ -62,10 +62,10 @@ HashMapDec<K,V>::HashMapDec( void ) {
 template<typename K, typename V> /// destructor deletes all members for DEC
 HashMapDec<K,V>::~HashMapDec( void ) {
   if( this->_tree != 0 ) {
-    TreeController* treeC = this->_treeC;
-    treeC->delDec< V >( this->_tree, this->_keySize );
+    TreeController* treeController = this->_treeController;
+    treeController->delDec< V >( this->_tree, this->_keySize );
   } // if tree is not empty delete it
-  delete this->_treeC;
+  delete this->_treeController;
 } // ~HashMapDec
 
 /******************************************************************************/

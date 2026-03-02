@@ -34,8 +34,8 @@ namespace HASHCC {
 namespace JNK {
 
 /******************************************************************************/
-  
-String 
+
+String
 cvt_binary( uInt16 input ) {
   if( input == 0 )
     return "0"; // trivial case
@@ -44,7 +44,7 @@ cvt_binary( uInt16 input ) {
     if(input & (1 << bitPosition))
       result += "1";
     else
-      if( !result.empty( ) ) 
+      if( !result.empty( ) )
         result += "0";
   }
   return result;
@@ -57,10 +57,10 @@ cvt_binary( uInt16 input ) {
 String
 char2bit( Char character ) {
   String bitString;
-  std::bitset<BITS_FOR_CHAR> byte;
-  byte |= character;
+  std::bitset<BITS_FOR_CHAR> bitsetValue;
+  bitsetValue |= character;
   std::stringstream stream;
-  stream << byte;
+  stream << bitsetValue;
   stream >> bitString;
   return bitString;
 }
@@ -68,10 +68,10 @@ char2bit( Char character ) {
 String
 int2bit( uChar value ) {
   String bitString;
-  std::bitset<BITS_FOR_CHAR * sizeof(uChar)> byte;
-  byte |= value;
+  std::bitset<BITS_FOR_CHAR * sizeof(uChar)> bitsetValue;
+  bitsetValue |= value;
   std::stringstream stream;
-  stream << byte;
+  stream << bitsetValue;
   stream >> bitString;
   return bitString;
 }
@@ -79,10 +79,10 @@ int2bit( uChar value ) {
 String
 int2bit( Int16 value ) {
   String bitString;
-  std::bitset<BITS_FOR_CHAR * sizeof(Int16)> byte;
-  byte |= value;
+  std::bitset<BITS_FOR_CHAR * sizeof(Int16)> bitsetValue;
+  bitsetValue |= value;
   std::stringstream stream;
-  stream << byte;
+  stream << bitsetValue;
   stream >> bitString;
   return bitString;
 }
@@ -90,10 +90,10 @@ int2bit( Int16 value ) {
 String
 int2bit( uInt16 value ) {
   String bitString;
-  std::bitset<BITS_FOR_CHAR * sizeof(uInt16)> byte;
-  byte |= value;
+  std::bitset<BITS_FOR_CHAR * sizeof(uInt16)> bitsetValue;
+  bitsetValue |= value;
   std::stringstream stream;
-  stream << byte;
+  stream << bitsetValue;
   stream >> bitString;
   return bitString;
 }
@@ -101,10 +101,10 @@ int2bit( uInt16 value ) {
 String
 int2bit( Int32 value ) {
   String bitString;
-  std::bitset<BITS_FOR_CHAR * sizeof(Int32)> byte;
-  byte |= value;
+  std::bitset<BITS_FOR_CHAR * sizeof(Int32)> bitsetValue;
+  bitsetValue |= value;
   std::stringstream stream;
-  stream << byte;
+  stream << bitsetValue;
   stream >> bitString;
   return bitString;
 }
@@ -112,10 +112,10 @@ int2bit( Int32 value ) {
 String
 int2bit( uInt32 value ) {
   String bitString;
-  std::bitset<BITS_FOR_CHAR * sizeof(uInt32)> byte;
-  byte |= value;
+  std::bitset<BITS_FOR_CHAR * sizeof(uInt32)> bitsetValue;
+  bitsetValue |= value;
   std::stringstream stream;
-  stream << byte;
+  stream << bitsetValue;
   stream >> bitString;
   return bitString;
 }
@@ -123,10 +123,10 @@ int2bit( uInt32 value ) {
 String
 int2bit( Int64 value ) {
   String bitString;
-  std::bitset<BITS_FOR_CHAR * sizeof(Int64)> byte;
-  byte |= (unsigned long)value;
+  std::bitset<BITS_FOR_CHAR * sizeof(Int64)> bitsetValue;
+  bitsetValue |= (unsigned long)value;
   std::stringstream stream;
-  stream << byte;
+  stream << bitsetValue;
   stream >> bitString;
   return bitString;
 }
@@ -134,20 +134,20 @@ int2bit( Int64 value ) {
 String
 int2bit( uInt64 value ) {
   String bitString;
-  std::bitset<BITS_FOR_CHAR * sizeof(uInt64)> byte;
-  byte |= (unsigned long)value;
+  std::bitset<BITS_FOR_CHAR * sizeof(uInt64)> bitsetValue;
+  bitsetValue |= (unsigned long)value;
   std::stringstream stream;
-  stream << byte;
+  stream << bitsetValue;
   stream >> bitString;
   return bitString;
 }
 
 String
-dec2hex2( Int16 dec ) {
-  String hex;
+dec2hex2( Int16 decimalValue ) {
+  String hexString;
   for( int bitPosition = 2 * sizeof( int ) - 1; bitPosition >= 0; bitPosition-- )
-    hex.append( (Char*)("0123456789ABCDEF"[ ( ( dec >> bitPosition * 4 ) & 0xF ) ]) );
-  return hex;
+    hexString.append( (Char*)("0123456789ABCDEF"[ ( ( decimalValue >> bitPosition * 4 ) & 0xF ) ]) );
+  return hexString;
 } // dec2hex2
 
 /******************************************************************************/

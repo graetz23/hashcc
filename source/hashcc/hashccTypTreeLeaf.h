@@ -49,7 +49,7 @@ TreeLeaf : public Tree {
  public:
 
   TreeLeaf( void ); /// constructor
-  TreeLeaf( T o ); /// constructor
+  TreeLeaf( T object ); /// constructor
   ~TreeLeaf( void ); /// destructor
 
   T* _o; /// glued object - by a pointer - to a tree lead
@@ -64,9 +64,9 @@ TreeLeaf<T>::TreeLeaf( void ) {
 } // Tree
 
 template<class T> /// constructor
-TreeLeaf<T>::TreeLeaf( T o ) {
+TreeLeaf<T>::TreeLeaf( T object ) {
   _o = new T;
-  *_o = o;
+  *_o = object;
 } // Tree
 
 template<class T> /// destructor

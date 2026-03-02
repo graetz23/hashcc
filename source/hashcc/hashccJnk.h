@@ -62,17 +62,17 @@ String cvt_binary( uInt16 input );
 
 /******************************************************************************/
 
-String int2str(  Int16 dec ); // convert DEC to String
-String int2str(  Int32 dec ); // convert DEC to String
-String int2str(  Int64 dec ); // convert DEC to String
-String dec2hex(  Int16 dec ); // convert DEC to HEX
-String char2bit( Char ch );
-String int2bit(  Int16 a );
-String int2bit(  uInt16 a );
-String int2bit(  Int32 a );
-String int2bit(  uInt32 a );
-String int2bit(  Int64 a );
-String int2bit(  uInt64 a );
+String int2str(  Int16 decimalValue ); // convert DEC to String
+String int2str(  Int32 decimalValue ); // convert DEC to String
+String int2str(  Int64 decimalValue ); // convert DEC to String
+String dec2hex(  Int16 decimalValue ); // convert DEC to HEX
+String char2bit( Char character );
+String int2bit(  Int16 value );
+String int2bit(  uInt16 value );
+String int2bit(  Int32 value );
+String int2bit(  uInt32 value );
+String int2bit(  Int64 value );
+String int2bit(  uInt64 value );
 
 /******************************************************************************/
 
@@ -81,11 +81,11 @@ xxx_to_bin( const T& value ) {
 
   const std::bitset< std::numeric_limits<T>::digits + 1 > bs( value );
 
-  const String s( bs.to_string( ) );
+  const String bitString( bs.to_string( ) );
 
-  const String::size_type pos( s.find_first_not_of( '0' ) );
+  const String::size_type pos( bitString.find_first_not_of( '0' ) );
 
-  return pos == String::npos ? "0" : s.substr( pos );
+  return pos == String::npos ? "0" : bitString.substr( pos );
 
 } // xxx_to_bin
 
@@ -96,13 +96,13 @@ inline T highbit( T& t ) {
 
 template < typename T >
 String bin( T& value ) {
-  std::stringstream b;
-  T bit = highbit( bit );
-  for( bit; bit; bit >>= 1 )
-    b << ( ( value & bit ) ? '1' : '0' );
-  String s;
-  b >> s;
-  return s;
+  std::stringstream stringStream;
+  T bitMask = highbit( bitMask );
+  for( bitMask; bitMask; bitMask >>= 1 )
+    stringStream << ( ( value & bitMask ) ? '1' : '0' );
+  String bitString;
+  stringStream >> bitString;
+  return bitString;
 } // bin
 
 /******************************************************************************/

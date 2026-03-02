@@ -49,7 +49,7 @@ TreeLimb : public Tree {
  public:
 
   TreeLimb( void ); /// constructor
-  TreeLimb( cuChar noOfLimbs ); /// constructor
+  TreeLimb( cuChar numberOfTrees ); /// constructor
   ~TreeLimb( void ); /// destructor
 
   Tree** _t; /// following limbs till leaveas are reached
@@ -64,10 +64,10 @@ TreeLimb<T>::TreeLimb( void ) {
 } // Tree
 
 template<class T> /// constructor
-TreeLimb<T>::TreeLimb( cuChar noOfTs ) {
-  _t = new Tree*[ noOfTs ];
-  for( uChar c = 0; c < noOfTs; c++ )
-    _t[ c ] = 0;
+TreeLimb<T>::TreeLimb( cuChar numberOfTrees ) {
+  _t = new Tree*[ numberOfTrees ];
+  for( uChar index = 0; index < numberOfTrees; index++ )
+    _t[ index ] = 0;
 } // Tree
 
 template<class T> /// destructor

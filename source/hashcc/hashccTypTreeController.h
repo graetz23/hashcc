@@ -71,7 +71,7 @@ TreeController {
 
   // /// //// BINARY TREE //// /// //
   template<typename T>
-  T* storeBin( Tree*& tree, T obj, Char* key, Int16 keySize ); /// store object by key in tree
+  T* storeBin( Tree*& tree, T object, Char* key, Int16 keySize ); /// store object by key in tree
 
   template<typename T>
   T getBin( Tree* tree, Char* key, Int16 keySize ); /// returns an object for key or null pointer
@@ -82,7 +82,7 @@ TreeController {
 
   // /// //// DECIMAL TREE //// /// //
   template<typename T>
-  T* storeDec( Tree*& tree, T obj, Char* key, Int16 keySize ); /// store object by key in tree
+  T* storeDec( Tree*& tree, T object, Char* key, Int16 keySize ); /// store object by key in tree
 
   template<typename T>
   T getDec( Tree* tree, Char* key, Int16 keySize ); /// returns an object for key or null pointer
@@ -182,8 +182,8 @@ TreeController::descendDelete( Tree*& tree, Int16 totalDepth, cuChar width ) {
     TreeLeaf<T>* treeLeaf = (TreeLeaf<T>*)( tree );
     delete treeLeaf;
   } else {
-    String msg( "TreeController::descendDelete - key length is negative" );
-    throw Error( msg );
+    String errorMessage( "TreeController::descendDelete - key length is negative" );
+    throw Error( errorMessage );
   } // if key length
   tree = 0;
 } // TreeController::descendDelete
@@ -203,12 +203,12 @@ TreeController::storeBin( Tree*& tree, T inputObject, Char* key, Int16 totalDept
     } else if( keyChar == Bin::val[ 1 ] ) { // 1
       returnValue = descendStore( tree, inputObject, currentDepth, totalDepth, 1, Bin::size );
     } else {
-      String msg( "TreeController::getBin - key val:" );
-      msg.append( " " ).append( &keyChar ).append( " " );
-      msg.append( " does not match to binary key set:" );
-      String set( key );
-      msg.append( " " ).append( set ).append( " " );
-      throw Error( msg );
+      String errorMessage( "TreeController::getBin - key val:" );
+      errorMessage.append( " " ).append( &keyChar ).append( " " );
+      errorMessage.append( " does not match to binary key set:" );
+      String keySetString( key );
+      errorMessage.append( " " ).append( keySetString ).append( " " );
+      throw Error( errorMessage );
     } // if
   } // currentDepth
   tree = rootTree;
@@ -227,27 +227,27 @@ TreeController::getBin( Tree* tree, Char* key, Int16 keySize ) {
     } else if( keyChar == Bin::val[ 1 ] ) { // 1
       returnValue = descendFetch<T>( tree, index, keySize, 1 );
     } else {
-      String msg( "TreeController::getBin - key val:" );
-      msg.append( " " ).append( &keyChar ).append( " " );
-      msg.append( " does not match to binary key set:" );
-      String set( key );
-      msg.append( " " ).append( set ).append( " " );
-      throw Error( msg );
+      String errorMessage( "TreeController::getBin - key val:" );
+      errorMessage.append( " " ).append( &keyChar ).append( " " );
+      errorMessage.append( " does not match to binary key set:" );
+      String keySetString( key );
+      errorMessage.append( " " ).append( keySetString ).append( " " );
+      throw Error( errorMessage );
     } // if
     if( tree == 0 ) {
       Char* pKeyChar = &keyChar;
-      String msg( "TreeController::getBin - no object available for key:" );
-      msg.append( " " ).append( key ).append( " " );
-      msg.append( "at symbol: " ).append( pKeyChar ).append( " " );
-      msg.append( "( tree == 0 )" ).append( " " );
-      throw Failure( msg );
+      String errorMessage( "TreeController::getBin - no object available for key:" );
+      errorMessage.append( " " ).append( key ).append( " " );
+      errorMessage.append( "at symbol: " ).append( pKeyChar ).append( " " );
+      errorMessage.append( "( tree == 0 )" ).append( " " );
+      throw Failure( errorMessage );
     } // null pointer tree
   } // index
   if( returnValue == 0 ) {
-    String msg( "TreeController::getBin - no object available for key:" );
-    msg.append( " " ).append( key ).append( " " );
-    msg.append( "( found == 0 )" ).append( " " );
-    throw Failure( msg );
+    String errorMessage( "TreeController::getBin - no object available for key:" );
+    errorMessage.append( " " ).append( key ).append( " " );
+    errorMessage.append( "( found == 0 )" ).append( " " );
+    throw Failure( errorMessage );
   } // null pointer object
   T result = *returnValue;
   return result;
@@ -289,12 +289,12 @@ TreeController::storeDec( Tree*& tree, T inputObject, Char* key, Int16 totalDept
     } else if( keyChar == Dec::val[ 9 ] ) { // 9
       returnValue = descendStore( tree, inputObject, currentDepth, totalDepth, 9, Dec::size );
     } else {
-      String msg( "TreeController::getDec - key val:" );
-      msg.append( " " ).append( &keyChar ).append( " " );
-      msg.append( " does not match to binary key set:" );
-      String set( key );
-      msg.append( " " ).append( set ).append( " " );
-      throw Error( msg );
+      String errorMessage( "TreeController::getDec - key val:" );
+      errorMessage.append( " " ).append( &keyChar ).append( " " );
+      errorMessage.append( " does not match to binary key set:" );
+      String keySetString( key );
+      errorMessage.append( " " ).append( keySetString ).append( " " );
+      throw Error( errorMessage );
     } // if
   } // currentDepth
   tree = rootTree;
@@ -329,27 +329,27 @@ TreeController::getDec( Tree* tree, Char* key, Int16 keySize ) {
     } else if( keyChar == Dec::val[ 9 ] ) { // 9
       returnValue = descendFetch<T>( tree, index, keySize, 9 );
     } else {
-      String msg( "TreeController::getDec - key val:" );
-      msg.append( " " ).append( &keyChar ).append( " " );
-      msg.append( " does not match to binary key set:" );
-      String set( key );
-      msg.append( " " ).append( set ).append( " " );
-      throw Error( msg );
+      String errorMessage( "TreeController::getDec - key val:" );
+      errorMessage.append( " " ).append( &keyChar ).append( " " );
+      errorMessage.append( " does not match to binary key set:" );
+      String keySetString( key );
+      errorMessage.append( " " ).append( keySetString ).append( " " );
+      throw Error( errorMessage );
     } // if
     if( tree == 0 ) {
       Char* pKeyChar = &keyChar;
-      String msg( "TreeController::getDec - no object available for key:" );
-      msg.append( " " ).append( key ).append( " " );
-      msg.append( "at symbol: " ).append( pKeyChar ).append( " " );
-      msg.append( "( tree == 0 )" ).append( " " );
-      throw Failure( msg );
+      String errorMessage( "TreeController::getDec - no object available for key:" );
+      errorMessage.append( " " ).append( key ).append( " " );
+      errorMessage.append( "at symbol: " ).append( pKeyChar ).append( " " );
+      errorMessage.append( "( tree == 0 )" ).append( " " );
+      throw Failure( errorMessage );
     } // null pointer tree
   } // index
   if( returnValue == 0 ) {
-    String msg( "TreeController::getDec - no object available for key:" );
-    msg.append( " " ).append( key ).append( " " );
-    msg.append( "( found == 0 )" ).append( " " );
-    throw Failure( msg );
+    String errorMessage( "TreeController::getDec - no object available for key:" );
+    errorMessage.append( " " ).append( key ).append( " " );
+    errorMessage.append( "( found == 0 )" ).append( " " );
+    throw Failure( errorMessage );
   } // null pointer object
   T result = *returnValue;
   return result;

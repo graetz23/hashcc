@@ -37,185 +37,170 @@ namespace FNC {
 
 String // returns a hash of 10 decimal symbols
 elf10_32( String key ) {
-  String hash;
-  std::stringstream sstr;
-  uInt32 intHash = hashAdler32( (Char*)key.c_str( ), (uInt16)key.length( ) );
-  sstr << intHash;
-  sstr >> hash;
-  String hash24 = blowZero( hash, 10 );
-  return hash24;
+  String hashString;
+  std::stringstream stringStream;
+  uInt32 integerHash = hashAdler32( (Char*)key.c_str( ), (uInt16)key.length( ) );
+  stringStream << integerHash;
+  stringStream >> hashString;
+  String paddedHashString = blowZero( hashString, 10 );
+  return paddedHashString;
 } // elf10_16
 
 String
-adler24_16( String key  ) {
-  String hash;
-  std::stringstream sstr;
-  uInt16 intHash = hashAdler16( (Char*)key.c_str( ), (uInt16)key.length( ) );
-  sstr << intHash;
-  sstr >> hash;
-  String hash24 = blowZero( hash, 24 );
-  return hash24;
+adler24_16( String key ) {
+  String hashString;
+  std::stringstream stringStream;
+  uInt16 integerHash = hashAdler16( (Char*)key.c_str( ), (uInt16)key.length( ) );
+  stringStream << integerHash;
+  stringStream >> hashString;
+  String paddedHashString = blowZero( hashString, 24 );
+  return paddedHashString;
 } // adler24
 
 String
-adler24_32( String key  ) {
-  String hash;
-  std::stringstream sstr;
-  uInt32 intHash = hashAdler32( (Char*)key.c_str( ), (uInt16)key.length( ) );
-  sstr << intHash;
-  sstr >> hash;
-  String hash24 = blowZero( hash, 24 );
-  return hash24;
+adler24_32( String key ) {
+  String hashString;
+  std::stringstream stringStream;
+  uInt32 integerHash = hashAdler32( (Char*)key.c_str( ), (uInt16)key.length( ) );
+  stringStream << integerHash;
+  stringStream >> hashString;
+  String paddedHashString = blowZero( hashString, 24 );
+  return paddedHashString;
 } // adler24
 
 String
-adler24_64( String key  ) {
-  String hash;
-  std::stringstream sstr;
-  uInt64 intHash = hashAdler64( (Char*)key.c_str( ), (uInt16)key.length( ) );
-  sstr << intHash;
-  sstr >> hash;
-  String hash24 = blowZero( hash, 24 );
-  return hash24;
+adler24_64( String key ) {
+  String hashString;
+  std::stringstream stringStream;
+  uInt64 integerHash = hashAdler64( (Char*)key.c_str( ), (uInt16)key.length( ) );
+  stringStream << integerHash;
+  stringStream >> hashString;
+  String paddedHashString = blowZero( hashString, 24 );
+  return paddedHashString;
 } // adler24
 
 String
 fnv24_16( String key ) {
-  String hash;
-  std::stringstream sstr;
-  uInt16 intHash = hashFNV16( (Char*)key.c_str( ), (uInt16)key.length( ) );
-  sstr << intHash;
-  sstr >> hash;
-  String hash24 = blowZero( hash, 24 );
-  return hash24;
+  String hashString;
+  std::stringstream stringStream;
+  uInt16 integerHash = hashFNV16( (Char*)key.c_str( ), (uInt16)key.length( ) );
+  stringStream << integerHash;
+  stringStream >> hashString;
+  String paddedHashString = blowZero( hashString, 24 );
+  return paddedHashString;
 } // fnv24
 
 String
 fnv24_32( String key ) {
-  String hash;
-  std::stringstream sstr;
-  uInt32 intHash = hashFNV32( (Char*)key.c_str( ), (uInt16)key.length( ) );
-  sstr << intHash;
-  sstr >> hash;
-  String hash24 = blowZero( hash, 24 );
-  return hash24;
+  String hashString;
+  std::stringstream stringStream;
+  uInt32 integerHash = hashFNV32( (Char*)key.c_str( ), (uInt16)key.length( ) );
+  stringStream << integerHash;
+  stringStream >> hashString;
+  String paddedHashString = blowZero( hashString, 24 );
+  return paddedHashString;
 } // fnv24
 
 String
 fnv24_64( String key ) {
-  String hash;
-  std::stringstream sstr;
-  uInt64 intHash = hashFNV64( (Char*)key.c_str( ), (uInt16)key.length( ) );
-  sstr << intHash;
-  sstr >> hash;
-  String hash24 = blowZero( hash, 24 );
-  return hash24;
+  String hashString;
+  std::stringstream stringStream;
+  uInt64 integerHash = hashFNV64( (Char*)key.c_str( ), (uInt16)key.length( ) );
+  stringStream << integerHash;
+  stringStream >> hashString;
+  String paddedHashString = blowZero( hashString, 24 );
+  return paddedHashString;
 } // fnv24
 
 /******************************************************************************/
 
 uInt16
-hashAdler16( Char* key, uInt16 len ) {
+hashAdler16( Char* key, uInt16 length ) {
   uInt16 adlerSum1 = 1;
   uInt16 adlerSum2 = 0;
-  // std::cout << std::endl << std::flush;
-  for( uInt16 index = 0; index < len; index++ ) {
+  for( uInt16 index = 0; index < length; index++ ) {
     uInt16 charValue = (uInt16)key[ index ]; // get to char an then cast the char
-    // std::cout << "charValue: " << charValue << std::endl << std::flush;
     adlerSum1 = ( adlerSum1 + charValue ) % 65521;
-    // std::cout << "adlerSum1: " << adlerSum1 << std::endl << std::flush;
     adlerSum2 = ( adlerSum2 + adlerSum1 ) % 65521;
-    // std::cout << "adlerSum2: " << adlerSum2 << std::endl << std::flush;
   }
-  // std::cout << std::endl << std::flush;
   uInt16 hashResult = ( adlerSum2 << 16 ) | adlerSum1;
   return hashResult;
 } // hashAdler16
 
-uInt32 
-hashAdler32( Char* key, uInt16 len ) {
+uInt32
+hashAdler32( Char* key, uInt16 length ) {
   uInt32 adlerSum1 = 1;
   uInt32 adlerSum2 = 0;
-  // std::cout << std::endl << std::flush;
-  for( uInt16 index = 0; index < len; index++ ) {
+  for( uInt16 index = 0; index < length; index++ ) {
     uInt32 charValue = (uInt32)key[ index ]; // get to char an then cast the char
-    // std::cout << "charValue: " << charValue << std::endl << std::flush;
     adlerSum1 = ( adlerSum1 + charValue ) % 65521;
-    // std::cout << "adlerSum1: " << adlerSum1 << std::endl << std::flush;
     adlerSum2 = ( adlerSum2 + adlerSum1 ) % 65521;
-    // std::cout << "adlerSum2: " << adlerSum2 << std::endl << std::flush;
   }
-  // std::cout << std::endl << std::flush;
   uInt32 hashResult = ( adlerSum2 << 16 ) | adlerSum1;
   return hashResult;
 } // hashAdler32
 
-uInt64 
-hashAdler64( Char* key, uInt16 len ) {
+uInt64
+hashAdler64( Char* key, uInt16 length ) {
   uInt64 adlerSum1 = 1;
   uInt64 adlerSum2 = 0;
-  // std::cout << std::endl << std::flush;
-  for( uInt16 index = 0; index < len; index++ ) {
+  for( uInt16 index = 0; index < length; index++ ) {
     uInt64 charValue = (uInt64)key[ index ]; // get to char an then cast the char
-    // std::cout << "charValue: " << charValue << std::endl << std::flush;
     adlerSum1 = ( adlerSum1 + charValue ) % 65521;
-    // std::cout << "adlerSum1: " << adlerSum1 << std::endl << std::flush;
     adlerSum2 = ( adlerSum2 + adlerSum1 ) % 65521;
-    // std::cout << "adlerSum2: " << adlerSum2 << std::endl << std::flush;
   }
-  // std::cout << std::endl << std::flush;
   uInt64 hashResult = ( adlerSum2 << 16 ) | adlerSum1;
   return hashResult;
 } // hashAdler64
 
 uInt16
-hashFNV16( Char* key, uInt16 len ) {
-  uInt64 nHashVal    = 0xcbf29ce484222325ULL;
-  uInt64 nMagicPrime = 0x00000100000001b3ULL;
-  uChar* pFirst = ( uChar* )( key );
-  uChar* pLast  = pFirst + len;
-  while( pFirst < pLast ) {
-   nHashVal ^= (uInt64)(*pFirst++); // get to char an then cast the char
-   nHashVal *= nMagicPrime;
+hashFNV16( Char* key, uInt16 length ) {
+  uInt64 hashValue    = 0xcbf29ce484222325ULL;
+  uInt64 magicPrime   = 0x00000100000001b3ULL;
+  uChar* firstBytePointer = ( uChar* )( key );
+  uChar* lastBytePointer  = firstBytePointer + length;
+  while( firstBytePointer < lastBytePointer ) {
+    hashValue ^= (uInt64)(*firstBytePointer++); // get to char an then cast the char
+    hashValue *= magicPrime;
   }
-  uInt16 nHashValTrunk = (uInt16)nHashVal;
-  return nHashValTrunk;
+  uInt16 truncatedHashValue = (uInt16)hashValue;
+  return truncatedHashValue;
 } // hashFNVint16
 
-uInt32 
-hashFNV32( Char* key, uInt16 len ) {
-  uInt64 nHashVal    = 0xcbf29ce484222325ULL;
-  uInt64 nMagicPrime = 0x00000100000001b3ULL;
-  uChar* pFirst = ( uChar* )( key );
-  uChar* pLast  = pFirst + len;
-  while( pFirst < pLast ) {
-   nHashVal ^= (uInt64)(*pFirst++); // get to char an then cast the char
-   nHashVal *= nMagicPrime;
+uInt32
+hashFNV32( Char* key, uInt16 length ) {
+  uInt64 hashValue    = 0xcbf29ce484222325ULL;
+  uInt64 magicPrime   = 0x00000100000001b3ULL;
+  uChar* firstBytePointer = ( uChar* )( key );
+  uChar* lastBytePointer  = firstBytePointer + length;
+  while( firstBytePointer < lastBytePointer ) {
+    hashValue ^= (uInt64)(*firstBytePointer++); // get to char an then cast the char
+    hashValue *= magicPrime;
   }
-  uInt32 nHashValTrunk = (uInt32)nHashVal;
-  return nHashValTrunk;
+  uInt32 truncatedHashValue = (uInt32)hashValue;
+  return truncatedHashValue;
 } // hashFNVint32
 
-uInt64 
-hashFNV64( Char* key, uInt16 len ) {
-  uInt64 nHashVal    = 0xcbf29ce484222325ULL;
-  uInt64 nMagicPrime = 0x00000100000001b3ULL;
-  uChar* pFirst = ( uChar* )( key );
-  uChar* pLast  = pFirst + len;
-  while( pFirst < pLast ) {
-   nHashVal ^= (uInt64)(*pFirst++); // get to char an then cast the char
-   nHashVal *= nMagicPrime;
+uInt64
+hashFNV64( Char* key, uInt16 length ) {
+  uInt64 hashValue    = 0xcbf29ce484222325ULL;
+  uInt64 magicPrime   = 0x00000100000001b3ULL;
+  uChar* firstBytePointer = ( uChar* )( key );
+  uChar* lastBytePointer  = firstBytePointer + length;
+  while( firstBytePointer < lastBytePointer ) {
+    hashValue ^= (uInt64)(*firstBytePointer++); // get to char an then cast the char
+    hashValue *= magicPrime;
   }
-  return nHashVal;
+  return hashValue;
 } // hashFNVint64
 
 /******************************************************************************/
 
 uInt32 // ELF hash algorithm
-hashELF32( Char* key, uInt16 len ) {
-  uInt32 hashValue = 0;
+hashELF32( Char* key, uInt16 length ) {
+  uInt32 hashValue  = 0;
   uInt32 highBitMask = 0;
-  for( uInt32 index = 0; index < len; key++, index++ ) {
+  for( uInt32 index = 0; index < length; key++, index++ ) {
     hashValue = (hashValue << 4) + (uInt32)(*key);
     if( ( highBitMask = hashValue & 0xF0000000L ) != 0 ) {
       hashValue ^= highBitMask >> 24;
@@ -239,60 +224,6 @@ blowZero( String binaryString, uInt16 size ) {
   paddedString.append( binaryString );
   return paddedString;
 } // blowZero
-
-/******************************************************************************/
-
-//String // convert DEC to Char
-//int2str( Int16 dec ) {
-//  String s;
-//  std::stringstream stream;
-//  stream << dec;
-//  stream >> s;
-//  return s;
-//} // int2str
-
-//String // convert DEC to Char
-//int2str( Int32 dec ) {
-//  String s;
-//  std::stringstream stream;
-//  stream << dec;
-//  stream >> s;
-//  return s;
-//} // int2str
-
-//String // convert DEC to String
-//int2str( Int64 dec ) {
-//  String s;
-//  std::stringstream stream;
-//  stream << dec;
-//  stream >> s;
-//  return s;
-//} // int2str
-
-/******************************************************************************/
-
-//String 
-//dec2hex( Int16 dec ) {
-//  Int16 i = 0;
-//  std::stack<Int16> remainder;
-//  String hex, temp;
-//  Char* hexDigits = { "0123456789ABCDEF" };
-//  while( dec != 0 ) {
-//    remainder.push( dec % 16 );
-//    dec /= 16;
-//    ++i;
-//  } // while
-//  while( i != 0 ) {
-//    if( remainder.top( ) > 15 ) {
-//      temp = dec2hex( remainder.top( ) );
-//      hex += temp;
-//    }
-//    hex.push_back( hexDigits[ remainder.top( ) ] );
-//    remainder.pop( );
-//    --i;
-//  } // while
-//  return hex;
-//} // dec2hex
 
 /******************************************************************************/
 

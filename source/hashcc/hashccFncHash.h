@@ -56,22 +56,22 @@ String fnv24_64( String key ); /// returns a hash of 24 decimal symbols
 
 /******************************************************************************/
 
-uInt16 hashAdler16( Char* key, uInt16 len );
-uInt32 hashAdler32( Char* key, uInt16 len );
-uInt64 hashAdler64( Char* key, uInt16 len );
+uInt16 hashAdler16( Char* key, uInt16 length );
+uInt32 hashAdler32( Char* key, uInt16 length );
+uInt64 hashAdler64( Char* key, uInt16 length );
 
-uInt16 hashFNV16( Char* key, uInt16 len );
-uInt32 hashFNV32( Char* key, uInt16 len );
-uInt64 hashFNV64( Char* key, uInt16 len );
+uInt16 hashFNV16( Char* key, uInt16 length );
+uInt32 hashFNV32( Char* key, uInt16 length );
+uInt64 hashFNV64( Char* key, uInt16 length );
 
 /******************************************************************************/
 
 uInt32 // ELF hash function using int
-hashELF32( Char* key, uInt16 len );
+hashELF32( Char* key, uInt16 length );
 
 /******************************************************************************/
 
-String blowZero( String str, uInt16 size );
+String blowZero( String binaryString, uInt16 size );
 
 /******************************************************************************/
 

@@ -55,7 +55,7 @@ Exception {
  public:
 
   Exception( void ); /// constructor
-  Exception( std::exception e ); /// constructor
+  Exception( std::exception stdException ); /// constructor
   Exception( cChar* message ); /// constructor overloaded
   Exception( String message ); /// constructor overloaded
   Exception( String message, Int16 lineNo ); /// use __LINE__ @ lineNo
@@ -68,8 +68,8 @@ Exception {
   void stop( void ) const; /// message to console and wait for enter
   void nuke( void ) const; /// do a nuke and melt down afterwards
 
-  friend std::ostream& operator << ( std::ostream& s, Exception& e ); /// cout
-  friend std::ostream& operator << ( std::ostream& s, Exception* e ); /// cout
+  friend std::ostream& operator << ( std::ostream& outputStream, Exception& exception ); /// cout
+  friend std::ostream& operator << ( std::ostream& outputStream, Exception* exception ); /// cout
 
  protected:
 

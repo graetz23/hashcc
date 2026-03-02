@@ -82,40 +82,40 @@ void /// tests HASHCC::FNC:: hash functions
 testHashFnv( void ) {
 
   String key = "myKey";
-  String strKey = TYP::keyConv< String >( key );
+  String stringKey = TYP::keyConv< String >( key );
 
-  String strHash = FNC::fnv24_16( strKey );
-  Char* charHash = (Char*)strHash.c_str( );
+  String stringHash = FNC::fnv24_16( stringKey );
+  Char* charArrayHash = (Char*)stringHash.c_str( );
 
-  std::cout << "key: " << key << " strKey  : " << strKey << std::endl
+  std::cout << "key: " << key << " stringKey  : " << stringKey << std::endl
       << std::flush;
-  std::cout << "key: " << key << " strHash : " << strHash << std::endl
+  std::cout << "key: " << key << " stringHash : " << stringHash << std::endl
       << std::flush;
-  std::cout << "key: " << key << " charHash: " << charHash << std::endl
-      << std::flush;
-
-  strKey = TYP::keyConv< String >( key );
-
-  strHash = FNC::fnv24_16( strKey );
-  charHash = (Char*)strHash.c_str( );
-
-  std::cout << "key: " << key << " strKey  : " << strKey << std::endl
-      << std::flush;
-  std::cout << "key: " << key << " strHash : " << strHash << std::endl
-      << std::flush;
-  std::cout << "key: " << key << " charHash: " << charHash << std::endl
+  std::cout << "key: " << key << " charArrayHash: " << charArrayHash << std::endl
       << std::flush;
 
-  strKey = TYP::keyConv< String >( key );
+  stringKey = TYP::keyConv< String >( key );
 
-  strHash = FNC::fnv24_16( strKey );
-  charHash = (Char*)strHash.c_str( );
+  stringHash = FNC::fnv24_16( stringKey );
+  charArrayHash = (Char*)stringHash.c_str( );
 
-  std::cout << "key: " << key << " strKey  : " << strKey << std::endl
+  std::cout << "key: " << key << " stringKey  : " << stringKey << std::endl
       << std::flush;
-  std::cout << "key: " << key << " strHash : " << strHash << std::endl
+  std::cout << "key: " << key << " stringHash : " << stringHash << std::endl
       << std::flush;
-  std::cout << "key: " << key << " charHash: " << charHash << std::endl
+  std::cout << "key: " << key << " charArrayHash: " << charArrayHash << std::endl
+      << std::flush;
+
+  stringKey = TYP::keyConv< String >( key );
+
+  stringHash = FNC::fnv24_16( stringKey );
+  charArrayHash = (Char*)stringHash.c_str( );
+
+  std::cout << "key: " << key << " stringKey  : " << stringKey << std::endl
+      << std::flush;
+  std::cout << "key: " << key << " stringHash : " << stringHash << std::endl
+      << std::flush;
+  std::cout << "key: " << key << " charArrayHash: " << charArrayHash << std::endl
       << std::flush;
 
   std::cout << std::endl << std::flush;
@@ -127,40 +127,40 @@ testHashAdler( void ) {
 
   String key = "myKey";
 
-  String strKey = TYP::keyConv< String >( key );
+  String stringKey = TYP::keyConv< String >( key );
 
-  String strHash = FNC::adler24_16( strKey );
-  Char* charHash = (Char*)strHash.c_str( );
+  String stringHash = FNC::adler24_16( stringKey );
+  Char* charArrayHash = (Char*)stringHash.c_str( );
 
-  std::cout << "key: " << key << " strKey  : " << strKey << std::endl
+  std::cout << "key: " << key << " stringKey  : " << stringKey << std::endl
       << std::flush;
-  std::cout << "key: " << key << " strHash : " << strHash << std::endl
+  std::cout << "key: " << key << " stringHash : " << stringHash << std::endl
       << std::flush;
-  std::cout << "key: " << key << " charHash: " << charHash << std::endl
-      << std::flush;
-
-  strKey = TYP::keyConv< String >( key );
-
-  strHash = FNC::adler24_16( strKey );
-  charHash = (Char*)strHash.c_str( );
-
-  std::cout << "key: " << key << " strKey  : " << strKey << std::endl
-      << std::flush;
-  std::cout << "key: " << key << " strHash : " << strHash << std::endl
-      << std::flush;
-  std::cout << "key: " << key << " charHash: " << charHash << std::endl
+  std::cout << "key: " << key << " charArrayHash: " << charArrayHash << std::endl
       << std::flush;
 
-  strKey = TYP::keyConv< String >( key );
+  stringKey = TYP::keyConv< String >( key );
 
-  strHash = FNC::adler24_16( strKey );
-  charHash = (Char*)strHash.c_str( );
+  stringHash = FNC::adler24_16( stringKey );
+  charArrayHash = (Char*)stringHash.c_str( );
 
-  std::cout << "key: " << key << " strKey  : " << strKey << std::endl
+  std::cout << "key: " << key << " stringKey  : " << stringKey << std::endl
       << std::flush;
-  std::cout << "key: " << key << " strHash : " << strHash << std::endl
+  std::cout << "key: " << key << " stringHash : " << stringHash << std::endl
       << std::flush;
-  std::cout << "key: " << key << " charHash: " << charHash << std::endl
+  std::cout << "key: " << key << " charArrayHash: " << charArrayHash << std::endl
+      << std::flush;
+
+  stringKey = TYP::keyConv< String >( key );
+
+  stringHash = FNC::adler24_16( stringKey );
+  charArrayHash = (Char*)stringHash.c_str( );
+
+  std::cout << "key: " << key << " stringKey  : " << stringKey << std::endl
+      << std::flush;
+  std::cout << "key: " << key << " stringHash : " << stringHash << std::endl
+      << std::flush;
+  std::cout << "key: " << key << " charArrayHash: " << charArrayHash << std::endl
       << std::flush;
 
   std::cout << std::endl << std::flush;
@@ -177,13 +177,13 @@ testHashMap( OBJ::Type::HashMap hashMapType ) {
     OBJ::HashMapBuilder hashMapBuilder;
 
     String load = "walter";
-    String* pStr = 0;
+    String* previousString = 0;
 
     OBJ::HashMap< String, String >* hashMapStrStr = hashMapBuilder
         .create< String, String >( hashMapType );
-    String keyStr = "myKey";
-    pStr = hashMapStrStr->put( keyStr, load );
-    std::cout << "key: " << keyStr << " value: " << hashMapStrStr->get( keyStr )
+    String keyString = "myKey";
+    previousString = hashMapStrStr->put( keyString, load );
+    std::cout << "key: " << keyString << " value: " << hashMapStrStr->get( keyString )
         << std::endl << std::flush;
     delete hashMapStrStr;
     std::cout << std::endl << std::flush;
@@ -191,7 +191,7 @@ testHashMap( OBJ::Type::HashMap hashMapType ) {
     OBJ::HashMap< Int16, String >* hashMapInt16Str = hashMapBuilder
         .create< Int16, String >( hashMapType );
     Int16 keyInt16 = 23;
-    pStr = hashMapInt16Str->put( keyInt16, load );
+    previousString = hashMapInt16Str->put( keyInt16, load );
     std::cout << "key: " << keyInt16 << " value: "
         << hashMapInt16Str->get( keyInt16 ) << std::endl << std::flush;
     delete hashMapInt16Str;
@@ -200,7 +200,7 @@ testHashMap( OBJ::Type::HashMap hashMapType ) {
     OBJ::HashMap< Int32, String >* hashMapInt32Str = hashMapBuilder
         .create< Int32, String >( hashMapType );
     Int32 keyInt32 = 23;
-    pStr = hashMapInt32Str->put( keyInt32, load );
+    previousString = hashMapInt32Str->put( keyInt32, load );
     std::cout << "key: " << keyInt32 << " value: "
         << hashMapInt32Str->get( keyInt32 ) << std::endl << std::flush;
     delete hashMapInt32Str;
@@ -209,7 +209,7 @@ testHashMap( OBJ::Type::HashMap hashMapType ) {
     OBJ::HashMap< Int64, String >* hashMapInt64Str = hashMapBuilder
         .create< Int64, String >( hashMapType );
     Int64 keyInt64 = 23;
-    pStr = hashMapInt64Str->put( keyInt64, load );
+    previousString = hashMapInt64Str->put( keyInt64, load );
     std::cout << "key: " << keyInt64 << " value: "
         << hashMapInt64Str->get( keyInt64 ) << std::endl << std::flush;
     delete hashMapInt64Str;
@@ -218,7 +218,7 @@ testHashMap( OBJ::Type::HashMap hashMapType ) {
     OBJ::HashMap< uInt16, String >* hashMapuInt16Str = hashMapBuilder
         .create< uInt16, String >( hashMapType );
     uInt16 keyuInt16 = 23;
-    pStr = hashMapuInt16Str->put( keyuInt16, load );
+    previousString = hashMapuInt16Str->put( keyuInt16, load );
     std::cout << "key: " << keyuInt16 << " value: "
         << hashMapuInt16Str->get( keyuInt16 ) << std::endl << std::flush;
     delete hashMapuInt16Str;
@@ -227,7 +227,7 @@ testHashMap( OBJ::Type::HashMap hashMapType ) {
     OBJ::HashMap< uInt32, String >* hashMapuInt32Str = hashMapBuilder
         .create< uInt32, String >( hashMapType );
     uInt32 keyuInt32 = 23;
-    pStr = hashMapuInt32Str->put( keyuInt32, load );
+    previousString = hashMapuInt32Str->put( keyuInt32, load );
     std::cout << "key: " << keyuInt32 << " value: "
         << hashMapuInt32Str->get( keyuInt32 ) << std::endl << std::flush;
     delete hashMapuInt32Str;
@@ -236,18 +236,18 @@ testHashMap( OBJ::Type::HashMap hashMapType ) {
     OBJ::HashMap< uInt64, String >* hashMapuInt64Str = hashMapBuilder
         .create< uInt64, String >( hashMapType );
     uInt64 keyuInt64 = 23;
-    pStr = hashMapuInt64Str->put( keyuInt64, load );
+    previousString = hashMapuInt64Str->put( keyuInt64, load );
     std::cout << "key: " << keyuInt64 << " value: "
         << hashMapuInt64Str->get( keyuInt64 ) << std::endl << std::flush;
     delete hashMapuInt64Str;
     std::cout << std::endl << std::flush;
 
-    int noOf = 64;
+    int numberOfItems = 64;
     OBJ::HashMap< Int16, Int16 >* hashMapI = hashMapBuilder
         .create< Int16, Int16 >( hashMapType );
-    for( Int16 index = 0; index < noOf; index++ )
+    for( Int16 index = 0; index < numberOfItems; index++ )
       hashMapI->put( index * 17, index );
-    for( Int16 index = 0; index < noOf; index++ ) {
+    for( Int16 index = 0; index < numberOfItems; index++ ) {
       Int16 value = hashMapI->get( index * 17 );
       std::cout << "index: " << index << " key: " << index * 17 << " value: " << value
           << std::endl << std::flush;
@@ -255,12 +255,12 @@ testHashMap( OBJ::Type::HashMap hashMapType ) {
     delete hashMapI;
     std::cout << std::endl << std::flush;
 
-    noOf = 64;
+    numberOfItems = 64;
     OBJ::HashMap< Int16, std::exception* >* hashMapE = hashMapBuilder
         .create< Int16, std::exception* >( hashMapType );
-    for( Int16 index = 0; index < noOf; index++ )
+    for( Int16 index = 0; index < numberOfItems; index++ )
       hashMapE->put( index * 13, new std::exception( ) );
-    for( Int16 index = 0; index < noOf; index++ ) {
+    for( Int16 index = 0; index < numberOfItems; index++ ) {
       std::exception* value = hashMapE->get( index * 13 );
       std::cout << "index: " << index << " key: " << index * 13 << " value: " << value
           << std::endl << std::flush;
@@ -269,12 +269,12 @@ testHashMap( OBJ::Type::HashMap hashMapType ) {
     delete hashMapE;
     std::cout << std::endl << std::flush;
 
-    noOf = 64;
+    numberOfItems = 64;
     OBJ::HashMap< Int16, DMY::Noob* >* hashMapN = hashMapBuilder
         .create< Int16, DMY::Noob* >( hashMapType );
-    for( Int16 index = 0; index < noOf; index++ )
+    for( Int16 index = 0; index < numberOfItems; index++ )
       hashMapN->put( index * 7, new DMY::Noob( ) );
-    for( Int16 index = 0; index < noOf; index++ ) {
+    for( Int16 index = 0; index < numberOfItems; index++ ) {
       DMY::Noob* value = hashMapN->get( index * 7 );
       std::cout << "index: " << index << " key: " << index * 7 << " value: " << value
           << std::endl << std::flush;
@@ -283,12 +283,12 @@ testHashMap( OBJ::Type::HashMap hashMapType ) {
     delete hashMapN;
     std::cout << std::endl << std::flush;
 
-    noOf = 100000;
+    numberOfItems = 100000;
     OBJ::HashMap< Int16, Int16 >* hashMapLoad = hashMapBuilder
         .create< Int16, Int16 >( hashMapType );
-    for( Int16 index = 0; index < noOf; index++ )
+    for( Int16 index = 0; index < numberOfItems; index++ )
       hashMapLoad->put( index, index );
-    for( Int16 index = 0; index < noOf; index++ ) {
+    for( Int16 index = 0; index < numberOfItems; index++ ) {
       Int16 value = hashMapLoad->get( index );
       if( value != index ) // counter was stored
         throw ERR::Error( "TEST::HashMap - hashed wrong value for key" );
@@ -324,14 +324,7 @@ test( void ) {
 
   try {
 
-    // should throw exception
-    //OBJ::HashMap<bool, String>* hashMapuBoolStr = hashMapBuilder.create<bool, String>( OBJ::Type::Dec24 );
-    //uInt64 keyBool = true;
-    //pStr = hashMapuBoolStr->put( keyBool, load );
-    //std::cout << "key: " << keyBool << " value: " << hashMapuBoolStr->get( keyBool ) << std::endl << std::flush;
-    //delete hashMapuBoolStr;
-
-    TYP::TreeController* treeC = new TYP::TreeController( );
+    TYP::TreeController* treeController = new TYP::TreeController( );
 
     Int16 keySize = 16;
     Char* key1 = (Char*)"0110001010101011";
@@ -339,19 +332,13 @@ test( void ) {
     Char* key3 = (Char*)"1110001010101011";
     Char* key4 = (Char*)"1110001010101010"; // same as key3 till last bit
 
-    //Int16 keySize = 2;
-    //Char* key1 = "00";
-    //Char* key2 = "01";
-    //Char* key3 = "10";
-    //Char* key4 = "11";
-
     String emptyString( "" );
-    String str( "DUMMY LOAD" );
-    String str1( "Hash me, hash me once" );
-    String str2( "Hash me, hash me a second time" );
-    String str3( "Hash me, hash me again and again" );
-    String str4( "Hash me, hash me over and over again" );
-    String str5( "Hash me, hash me over and over again forever" );
+    String dummyString( "DUMMY LOAD" );
+    String string1( "Hash me, hash me once" );
+    String string2( "Hash me, hash me a second time" );
+    String string3( "Hash me, hash me again and again" );
+    String string4( "Hash me, hash me over and over again" );
+    String string5( "Hash me, hash me over and over again forever" );
 
     TYP::Tree* tree = 0;
 
@@ -387,78 +374,76 @@ test( void ) {
       Char* buffer = new Char[ bufferSize ];
       for( uInt16 bufferIndex = 0; bufferIndex < bufferSize; bufferIndex++ )
         buffer[ bufferIndex ] = (Char)intValue;
-      uInt16 fnvHashInt = FNC::hashFNV16( buffer, bufferSize );
+      uInt16 fnvHashInteger = FNC::hashFNV16( buffer, bufferSize );
       std::stringstream stream;
-      stream << fnvHashInt;
-      String fnvHash;
-      stream >> fnvHash;
-      std::cout << intValue << " decimal == " << fnvHash << " binary" << std::endl
+      stream << fnvHashInteger;
+      String fnvHashString;
+      stream >> fnvHashString;
+      std::cout << intValue << " decimal == " << fnvHashString << " binary" << std::endl
           << std::flush;
 
-      treeC->storeDec< String >( tree, str, (Char*)fnvHash.c_str( ), 24 );
+      treeController->storeDec< String >( tree, dummyString, (Char*)fnvHashString.c_str( ), 24 );
       std::cout << intValue << " fetched == "
-          << treeC->getDec< String >( tree, (Char*)fnvHash.c_str( ), 24 )
+          << treeController->getDec< String >( tree, (Char*)fnvHashString.c_str( ), 24 )
           << std::endl << std::flush;
 
       delete[ ] buffer;
     }
-    treeC->delDec< String >( tree, 24 );
+    treeController->delDec< String >( tree, 24 );
     tree = 0;
     std::cout << std::endl << std::flush;
 
-    String* par = 0;
-    std::cout << "key: " << key1 << "\t" << "value: " << str1 << std::endl
+    String* previousValue = 0;
+    std::cout << "key: " << key1 << "\t" << "value: " << string1 << std::endl
         << std::flush;
-    par = treeC->storeBin< String >( tree, str1, key1, keySize );
-    String res1 = treeC->getBin< String >( tree, key1, keySize );
-    std::cout << "key: " << key1 << "\t" << "value: " << res1 << std::endl
-        << std::flush;
-    std::cout << std::endl << std::flush;
-
-    std::cout << "key: " << key2 << "\t" << "value: " << str2 << std::endl
-        << std::flush;
-    par = treeC->storeBin< String >( tree, str2, key2, keySize );
-    String res2 = treeC->getBin< String >( tree, key2, keySize );
-    std::cout << "key: " << key2 << "\t" << "value: " << res2 << std::endl
+    previousValue = treeController->storeBin< String >( tree, string1, key1, keySize );
+    String result1 = treeController->getBin< String >( tree, key1, keySize );
+    std::cout << "key: " << key1 << "\t" << "value: " << result1 << std::endl
         << std::flush;
     std::cout << std::endl << std::flush;
 
-    std::cout << "key: " << key3 << "\t" << "value: " << str3 << std::endl
+    std::cout << "key: " << key2 << "\t" << "value: " << string2 << std::endl
         << std::flush;
-    par = treeC->storeBin< String >( tree, str3, key3, keySize );
-    String res3 = treeC->getBin< String >( tree, key3, keySize );
-    std::cout << "key: " << key3 << "\t" << "value: " << res3 << std::endl
+    previousValue = treeController->storeBin< String >( tree, string2, key2, keySize );
+    String result2 = treeController->getBin< String >( tree, key2, keySize );
+    std::cout << "key: " << key2 << "\t" << "value: " << result2 << std::endl
         << std::flush;
     std::cout << std::endl << std::flush;
 
-    std::cout << "key: " << key4 << "\t" << "value: " << str4 << std::endl
+    std::cout << "key: " << key3 << "\t" << "value: " << string3 << std::endl
         << std::flush;
-    par = treeC->storeBin< String >( tree, str4, key4, keySize );
-    if( par != 0 ) {
-      String sPar = *par;
-      delete par;
-      std::cout << "par: " << sPar << "\t" << "value: " << str4 << std::endl
+    previousValue = treeController->storeBin< String >( tree, string3, key3, keySize );
+    String result3 = treeController->getBin< String >( tree, key3, keySize );
+    std::cout << "key: " << key3 << "\t" << "value: " << result3 << std::endl
+        << std::flush;
+    std::cout << std::endl << std::flush;
+
+    std::cout << "key: " << key4 << "\t" << "value: " << string4 << std::endl
+        << std::flush;
+    previousValue = treeController->storeBin< String >( tree, string4, key4, keySize );
+    if( previousValue != 0 ) {
+      String stringPreviousValue = *previousValue;
+      delete previousValue;
+      std::cout << "previousValue: " << stringPreviousValue << "\t" << "value: " << string4 << std::endl
           << std::flush;
     }
-    //String res4 = treeC->getBin<String>( tree, key4, keySize );
-    //std::cout << "key: " << key4 << "\t" << "value: " << res4 << std::endl << std::flush;
     std::cout << std::endl << std::flush;
 
-    std::cout << "key: " << key4 << "\t" << "value: " << str4 << std::endl
+    std::cout << "key: " << key4 << "\t" << "value: " << string4 << std::endl
         << std::flush;
-    par = treeC->storeBin< String >( tree, str5, key4, keySize );
-    if( par != 0 ) {
-      String sPar = *par;
-      delete par;
-      std::cout << "par: " << sPar << "\t" << "value: " << str5 << std::endl
+    previousValue = treeController->storeBin< String >( tree, string5, key4, keySize );
+    if( previousValue != 0 ) {
+      String stringPreviousValue = *previousValue;
+      delete previousValue;
+      std::cout << "previousValue: " << stringPreviousValue << "\t" << "value: " << string5 << std::endl
           << std::flush;
     }
-    String res4 = treeC->getBin< String >( tree, key4, keySize );
-    std::cout << "key: " << key4 << "\t" << "value: " << res4 << std::endl
+    String result4 = treeController->getBin< String >( tree, key4, keySize );
+    std::cout << "key: " << key4 << "\t" << "value: " << result4 << std::endl
         << std::flush;
     std::cout << std::endl << std::flush;
 
-    treeC->delBin< String >( tree, keySize );
+    treeController->delBin< String >( tree, keySize );
 
     tree = 0;
     keySize = 16;
@@ -478,7 +463,7 @@ test( void ) {
       //loadString.append( loadString ); // 1024
       //loadString.append( loadString ); // 2048
       //loadString.append( loadString ); // 4096
-      treeC->storeBin< String >( tree, loadString, (Char*)keyChars, keySize );
+      treeController->storeBin< String >( tree, loadString, (Char*)keyChars, keySize );
 
     } // hashIndex
 
@@ -487,30 +472,30 @@ test( void ) {
       String hashString = HASHCC::FNC::blowZero( HASHCC::JNK::xxx_to_bin( hashIndex ),
         keySize );
       cChar* keyChars = hashString.c_str( );
-      String resultString = treeC->getBin< String >( tree, (Char*)keyChars, keySize );
+      String resultString = treeController->getBin< String >( tree, (Char*)keyChars, keySize );
       // std::cout << resultString << std::endl << std::flush;
 
     } // hashIndex
 
     Char* search1 = (Char*)"0101010101010101";
-    std::cout << treeC->getBin< String >( tree, search1, keySize ) << std::endl
+    std::cout << treeController->getBin< String >( tree, search1, keySize ) << std::endl
         << std::flush;
     Char* search2 = (Char*)"0000000000000000";
-    std::cout << treeC->getBin< String >( tree, search2, keySize ) << std::endl
+    std::cout << treeController->getBin< String >( tree, search2, keySize ) << std::endl
         << std::flush;
     Char* search3 = (Char*)"1111111111111111";
-    std::cout << treeC->getBin< String >( tree, search3, keySize ) << std::endl
+    std::cout << treeController->getBin< String >( tree, search3, keySize ) << std::endl
         << std::flush;
     Char* search4 = (Char*)"1010101010101010";
-    std::cout << treeC->getBin< String >( tree, search4, keySize ) << std::endl
+    std::cout << treeController->getBin< String >( tree, search4, keySize ) << std::endl
         << std::flush;
     Char* search5 = (Char*)"0000111100001111";
-    std::cout << treeC->getBin< String >( tree, search5, keySize ) << std::endl
+    std::cout << treeController->getBin< String >( tree, search5, keySize ) << std::endl
         << std::flush;
 
-    treeC->delBin< String >( tree, keySize );
+    treeController->delBin< String >( tree, keySize );
 
-    delete treeC;
+    delete treeController;
 
   } catch( ERR::Failure caughtFailure ) {
     std::cout << "HASHCC::ERR::Failure:" << std::endl << std::flush;

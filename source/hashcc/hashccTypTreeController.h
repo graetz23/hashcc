@@ -105,259 +105,259 @@ TreeController {
  protected:
 
   template<typename T> T* /// function to store in hash tree
-  descendStore( Tree*& t, T o, Int16 s, Int16 d, Int16 p, cuChar w );
+  descendStore( Tree*& tree, T inputObject, Int16 currentDepth, Int16 totalDepth, Int16 position, cuChar width );
 
   template<typename T> T* /// function to fetch from hash tree
-  descendFetch( Tree*& t, Int16 s, Int16 d, Int16 p );
+  descendFetch( Tree*& tree, Int16 currentDepth, Int16 totalDepth, Int16 position );
 
   template<typename T> void /// function to crawl and delete tree
-  descendDelete( Tree*& t, Int16 d, cuChar w );
+  descendDelete( Tree*& tree, Int16 totalDepth, cuChar width );
 
 }; // class TreeController
 
 /******************************************************************************/
 
 template<typename T> T* /// function to store in hash tree
-TreeController::descendStore( Tree*& t, T o, Int16 s, Int16 d, Int16 p, cuChar w ) {
-  T* f = 0;
-  TreeLimb<T>* l = (TreeLimb<T>*)( t );
-  if( s == d - 1 ) { // last is leaf
-    if( l->_t[ p ] != 0 ) { // occupied
-      TreeLeaf<T>* L = (TreeLeaf<T>*)( l->_t[ p ] );
-      T O = *L->_o;
-      f = new T;
-      *f = O;
-      *L->_o = o;
-      t = (Tree*)( L );
+TreeController::descendStore( Tree*& tree, T inputObject, Int16 currentDepth, Int16 totalDepth, Int16 position, cuChar width ) {
+  T* returnValue = 0;
+  TreeLimb<T>* treeLimb = (TreeLimb<T>*)( tree );
+  if( currentDepth == totalDepth - 1 ) { // last is leaf
+    if( treeLimb->_t[ position ] != 0 ) { // occupied
+      TreeLeaf<T>* treeLeaf = (TreeLeaf<T>*)( treeLimb->_t[ position ] );
+      T previousObject = *treeLeaf->_o;
+      returnValue = new T;
+      *returnValue = previousObject;
+      *treeLeaf->_o = inputObject;
+      tree = (Tree*)( treeLeaf );
     } else { // build leaf
-      TreeLeaf<T>* L = new TreeLeaf<T>( o );
-      l->_t[ p ] = (Tree*)( L );
-      t = (Tree*)( L );
+      TreeLeaf<T>* treeLeaf = new TreeLeaf<T>( inputObject );
+      treeLimb->_t[ position ] = (Tree*)( treeLeaf );
+      tree = (Tree*)( treeLeaf );
     } // if exists
   } else { // descend
-    if( l->_t[ p ] != 0 ) { // occupied
-      l = (TreeLimb<T>*)( l->_t[ p ] );
-      t = (Tree*)( l );
+    if( treeLimb->_t[ position ] != 0 ) { // occupied
+      treeLimb = (TreeLimb<T>*)( treeLimb->_t[ position ] );
+      tree = (Tree*)( treeLimb );
     } else { // build limb
-      l->_t[ p ] = (Tree*)( new TreeLimb<T>( w ) );
-      l = (TreeLimb<T>*)( l->_t[ p ] );
-      t = (Tree*)( l );
+      treeLimb->_t[ position ] = (Tree*)( new TreeLimb<T>( width ) );
+      treeLimb = (TreeLimb<T>*)( treeLimb->_t[ position ] );
+      tree = (Tree*)( treeLimb );
     } // if exists
   } // if leaf
-  return f;
+  return returnValue;
 } // TreeController::descendStore
 
 template<typename T> T* /// function to fetch from hash tree
-TreeController::descendFetch( Tree*& t, Int16 s, Int16 d, Int16 p ) {
-  T* f = 0;
-  TreeLimb<T>* l = (TreeLimb<T>*)( t );
-  if( s == d - 1 ) { // last is leaf
-    if( l->_t[ p ] != 0 ) {
-      TreeLeaf<T>* L = (TreeLeaf<T>*)( l->_t[ p ] );
-      f = L->_o;
-      t = (Tree*)L;
+TreeController::descendFetch( Tree*& tree, Int16 currentDepth, Int16 totalDepth, Int16 position ) {
+  T* returnValue = 0;
+  TreeLimb<T>* treeLimb = (TreeLimb<T>*)( tree );
+  if( currentDepth == totalDepth - 1 ) { // last is leaf
+    if( treeLimb->_t[ position ] != 0 ) {
+      TreeLeaf<T>* treeLeaf = (TreeLeaf<T>*)( treeLimb->_t[ position ] );
+      returnValue = treeLeaf->_o;
+      tree = (Tree*)treeLeaf;
     } else { // hash not valid
-      t = 0;
+      tree = 0;
     } // if exists
   } else { // descend
-    if( l->_t[ p ] != 0 ) {
-      l = (TreeLimb<T>*)( l->_t[ p ] );
-      t = (Tree*)l;
+    if( treeLimb->_t[ position ] != 0 ) {
+      treeLimb = (TreeLimb<T>*)( treeLimb->_t[ position ] );
+      tree = (Tree*)treeLimb;
     } else { // hash not valid
-      t = 0;
+      tree = 0;
     } // if exists
   } // if leaf
-  return f;
+  return returnValue;
 } // TreeController::descendFetch
 
 template<typename T> void /// function to crawl and delete tree
-TreeController::descendDelete( Tree*& t, Int16 d, cuChar w ) {
-  if( d > 0 ) {
-    TreeLimb<T>* l = (TreeLimb<T>*)( t );
-    for( uChar r = 0; r < w; r++ )
-      if( l->_t[ r ] != 0 )
-        descendDelete<T>( l->_t[ r ], d - 1, w );
-    delete l;
-  } else if( d == 0 ) {
-    TreeLeaf<T>* L = (TreeLeaf<T>*)( t );
-    delete L;
+TreeController::descendDelete( Tree*& tree, Int16 totalDepth, cuChar width ) {
+  if( totalDepth > 0 ) {
+    TreeLimb<T>* treeLimb = (TreeLimb<T>*)( tree );
+    for( uChar index = 0; index < width; index++ )
+      if( treeLimb->_t[ index ] != 0 )
+        descendDelete<T>( treeLimb->_t[ index ], totalDepth - 1, width );
+    delete treeLimb;
+  } else if( totalDepth == 0 ) {
+    TreeLeaf<T>* treeLeaf = (TreeLeaf<T>*)( tree );
+    delete treeLeaf;
   } else {
     String msg( "TreeController::descendDelete - key length is negative" );
     throw Error( msg );
   } // if key length
-  t = 0;
+  tree = 0;
 } // TreeController::descendDelete
 
 /******************************************************************************/
 
 template<typename T> T* /// store object by key in tree
-TreeController::storeBin( Tree*& t, T o, Char* k, Int16 d ) {
-  T* f = 0;
-  if( t == 0 )
-    t = new TreeLimb<T>( Bin::size );
-  Tree* r = t;
-  for( Int16 s = 0; s < d; s++ ) {
-    Char c = k[ s ];
-    if( c == Bin::val[ 0 ] ) { // 0
-      f = descendStore( t, o, s, d, 0, Bin::size );
-    } else if( c == Bin::val[ 1 ] ) { // 1
-      f = descendStore( t, o, s, d, 1, Bin::size );
+TreeController::storeBin( Tree*& tree, T inputObject, Char* key, Int16 totalDepth ) {
+  T* returnValue = 0;
+  if( tree == 0 )
+    tree = new TreeLimb<T>( Bin::size );
+  Tree* rootTree = tree;
+  for( Int16 currentDepth = 0; currentDepth < totalDepth; currentDepth++ ) {
+    Char keyChar = key[ currentDepth ];
+    if( keyChar == Bin::val[ 0 ] ) { // 0
+      returnValue = descendStore( tree, inputObject, currentDepth, totalDepth, 0, Bin::size );
+    } else if( keyChar == Bin::val[ 1 ] ) { // 1
+      returnValue = descendStore( tree, inputObject, currentDepth, totalDepth, 1, Bin::size );
     } else {
       String msg( "TreeController::getBin - key val:" );
-      msg.append( " " ).append( &c ).append( " " );
+      msg.append( " " ).append( &keyChar ).append( " " );
       msg.append( " does not match to binary key set:" );
-      String set( k );
+      String set( key );
       msg.append( " " ).append( set ).append( " " );
       throw Error( msg );
     } // if
-  } // s
-  t = r;
-  return f;
+  } // currentDepth
+  tree = rootTree;
+  return returnValue;
 } // TreeController::storeBin
 
 template<typename T> T /// returns an object for key or null pointer
-TreeController::getBin( Tree* t, Char* k, Int16 kSize ) {
-  if( t == 0 )
+TreeController::getBin( Tree* tree, Char* key, Int16 keySize ) {
+  if( tree == 0 )
     throw Error( "TreeController::getBin - no Tree supported" );
-  T* f = 0;
-  for( Int16 i = 0; i < kSize; i++ ) {
-    Char c = k[ i ];
-    if( c == Bin::val[ 0 ] ) { // 0
-      f = descendFetch<T>( t, i, kSize, 0 );
-    } else if( c == Bin::val[ 1 ] ) { // 1
-      f = descendFetch<T>( t, i, kSize, 1 );
+  T* returnValue = 0;
+  for( Int16 index = 0; index < keySize; index++ ) {
+    Char keyChar = key[ index ];
+    if( keyChar == Bin::val[ 0 ] ) { // 0
+      returnValue = descendFetch<T>( tree, index, keySize, 0 );
+    } else if( keyChar == Bin::val[ 1 ] ) { // 1
+      returnValue = descendFetch<T>( tree, index, keySize, 1 );
     } else {
       String msg( "TreeController::getBin - key val:" );
-      msg.append( " " ).append( &c ).append( " " );
+      msg.append( " " ).append( &keyChar ).append( " " );
       msg.append( " does not match to binary key set:" );
-      String set( k );
+      String set( key );
       msg.append( " " ).append( set ).append( " " );
       throw Error( msg );
     } // if
-    if( t == 0 ) {
-      Char* pC = &c;
+    if( tree == 0 ) {
+      Char* pKeyChar = &keyChar;
       String msg( "TreeController::getBin - no object available for key:" );
-      msg.append( " " ).append( k ).append( " " );
-      msg.append( "at symbol: " ).append( pC ).append( " " );
+      msg.append( " " ).append( key ).append( " " );
+      msg.append( "at symbol: " ).append( pKeyChar ).append( " " );
       msg.append( "( tree == 0 )" ).append( " " );
       throw Failure( msg );
     } // null pointer tree
-  } // i
-  if( f == 0 ) {
+  } // index
+  if( returnValue == 0 ) {
     String msg( "TreeController::getBin - no object available for key:" );
-    msg.append( " " ).append( k ).append( " " );
+    msg.append( " " ).append( key ).append( " " );
     msg.append( "( found == 0 )" ).append( " " );
     throw Failure( msg );
   } // null pointer object
-  T o = *f;
-  return o;
+  T result = *returnValue;
+  return result;
 } // TreeController::getBin
 
 template<typename T> void /// deletes an hash tree
-TreeController::delBin( Tree* t, Int16 kSize ) {
-  descendDelete<T>( t, kSize, Bin::size );
+TreeController::delBin( Tree* tree, Int16 keySize ) {
+  descendDelete<T>( tree, keySize, Bin::size );
 } // TreeController::delBin
 
 /******************************************************************************/
 
 template<typename T> T* /// store object by key in tree
-TreeController::storeDec( Tree*& t, T o, Char* k, Int16 d ) {
-  T* f = 0;
-  if( t == 0 )
-    t = new TreeLimb<T>( Dec::size );
-  Tree* r = t;
-  for( Int16 s = 0; s < d; s++ ) {
-    Char c = k[ s ];
-    if( c == Dec::val[ 0 ] ) { // 0
-      f = descendStore( t, o, s, d, 0, Dec::size );
-    } else if( c == Dec::val[ 1 ] ) { // 1
-      f = descendStore( t, o, s, d, 1, Dec::size );
-    } else if( c == Dec::val[ 2 ] ) { // 2
-      f = descendStore( t, o, s, d, 2, Dec::size );
-    } else if( c == Dec::val[ 3 ] ) { // 3
-      f = descendStore( t, o, s, d, 3, Dec::size );
-    } else if( c == Dec::val[ 4 ] ) { // 4
-      f = descendStore( t, o, s, d, 4, Dec::size );
-    } else if( c == Dec::val[ 5 ] ) { // 5
-      f = descendStore( t, o, s, d, 5, Dec::size );
-    } else if( c == Dec::val[ 6 ] ) { // 6
-      f = descendStore( t, o, s, d, 6, Dec::size );
-    } else if( c == Dec::val[ 7 ] ) { // 7
-      f = descendStore( t, o, s, d, 7, Dec::size );
-    } else if( c == Dec::val[ 8 ] ) { // 8
-      f = descendStore( t, o, s, d, 8, Dec::size );
-    } else if( c == Dec::val[ 9 ] ) { // 9
-      f = descendStore( t, o, s, d, 9, Dec::size );
+TreeController::storeDec( Tree*& tree, T inputObject, Char* key, Int16 totalDepth ) {
+  T* returnValue = 0;
+  if( tree == 0 )
+    tree = new TreeLimb<T>( Dec::size );
+  Tree* rootTree = tree;
+  for( Int16 currentDepth = 0; currentDepth < totalDepth; currentDepth++ ) {
+    Char keyChar = key[ currentDepth ];
+    if( keyChar == Dec::val[ 0 ] ) { // 0
+      returnValue = descendStore( tree, inputObject, currentDepth, totalDepth, 0, Dec::size );
+    } else if( keyChar == Dec::val[ 1 ] ) { // 1
+      returnValue = descendStore( tree, inputObject, currentDepth, totalDepth, 1, Dec::size );
+    } else if( keyChar == Dec::val[ 2 ] ) { // 2
+      returnValue = descendStore( tree, inputObject, currentDepth, totalDepth, 2, Dec::size );
+    } else if( keyChar == Dec::val[ 3 ] ) { // 3
+      returnValue = descendStore( tree, inputObject, currentDepth, totalDepth, 3, Dec::size );
+    } else if( keyChar == Dec::val[ 4 ] ) { // 4
+      returnValue = descendStore( tree, inputObject, currentDepth, totalDepth, 4, Dec::size );
+    } else if( keyChar == Dec::val[ 5 ] ) { // 5
+      returnValue = descendStore( tree, inputObject, currentDepth, totalDepth, 5, Dec::size );
+    } else if( keyChar == Dec::val[ 6 ] ) { // 6
+      returnValue = descendStore( tree, inputObject, currentDepth, totalDepth, 6, Dec::size );
+    } else if( keyChar == Dec::val[ 7 ] ) { // 7
+      returnValue = descendStore( tree, inputObject, currentDepth, totalDepth, 7, Dec::size );
+    } else if( keyChar == Dec::val[ 8 ] ) { // 8
+      returnValue = descendStore( tree, inputObject, currentDepth, totalDepth, 8, Dec::size );
+    } else if( keyChar == Dec::val[ 9 ] ) { // 9
+      returnValue = descendStore( tree, inputObject, currentDepth, totalDepth, 9, Dec::size );
     } else {
       String msg( "TreeController::getDec - key val:" );
-      msg.append( " " ).append( &c ).append( " " );
+      msg.append( " " ).append( &keyChar ).append( " " );
       msg.append( " does not match to binary key set:" );
-      String set( k );
+      String set( key );
       msg.append( " " ).append( set ).append( " " );
       throw Error( msg );
     } // if
-  } // s
-  t = r;
-  return f;
+  } // currentDepth
+  tree = rootTree;
+  return returnValue;
 } // TreeController::storeDec
 
 template<typename T> T /// returns an object for key or null pointer
-TreeController::getDec( Tree* t, Char* k, Int16 kSize ) {
-  if( t == 0 )
+TreeController::getDec( Tree* tree, Char* key, Int16 keySize ) {
+  if( tree == 0 )
     throw Error( "TreeController::getDec - no Tree supported" );
-  T* f = 0;
-  for( Int16 i = 0; i < kSize; i++ ) {
-    Char c = k[ i ];
-    if( c == Dec::val[ 0 ] ) { // 0
-      f = descendFetch<T>( t, i, kSize, 0 );
-    } else if( c == Dec::val[ 1 ] ) { // 1
-      f = descendFetch<T>( t, i, kSize, 1 );
-    } else if( c == Dec::val[ 2 ] ) { // 2
-      f = descendFetch<T>( t, i, kSize, 2 );
-    } else if( c == Dec::val[ 3 ] ) { // 3
-      f = descendFetch<T>( t, i, kSize, 3 );
-    } else if( c == Dec::val[ 4 ] ) { // 4
-      f = descendFetch<T>( t, i, kSize, 4 );
-    } else if( c == Dec::val[ 5 ] ) { // 5
-      f = descendFetch<T>( t, i, kSize, 5 );
-    } else if( c == Dec::val[ 6 ] ) { // 6
-      f = descendFetch<T>( t, i, kSize, 6 );
-    } else if( c == Dec::val[ 7 ] ) { // 7
-      f = descendFetch<T>( t, i, kSize, 7 );
-    } else if( c == Dec::val[ 8 ] ) { // 8
-      f = descendFetch<T>( t, i, kSize, 8 );
-    } else if( c == Dec::val[ 9 ] ) { // 9
-      f = descendFetch<T>( t, i, kSize, 9 );
+  T* returnValue = 0;
+  for( Int16 index = 0; index < keySize; index++ ) {
+    Char keyChar = key[ index ];
+    if( keyChar == Dec::val[ 0 ] ) { // 0
+      returnValue = descendFetch<T>( tree, index, keySize, 0 );
+    } else if( keyChar == Dec::val[ 1 ] ) { // 1
+      returnValue = descendFetch<T>( tree, index, keySize, 1 );
+    } else if( keyChar == Dec::val[ 2 ] ) { // 2
+      returnValue = descendFetch<T>( tree, index, keySize, 2 );
+    } else if( keyChar == Dec::val[ 3 ] ) { // 3
+      returnValue = descendFetch<T>( tree, index, keySize, 3 );
+    } else if( keyChar == Dec::val[ 4 ] ) { // 4
+      returnValue = descendFetch<T>( tree, index, keySize, 4 );
+    } else if( keyChar == Dec::val[ 5 ] ) { // 5
+      returnValue = descendFetch<T>( tree, index, keySize, 5 );
+    } else if( keyChar == Dec::val[ 6 ] ) { // 6
+      returnValue = descendFetch<T>( tree, index, keySize, 6 );
+    } else if( keyChar == Dec::val[ 7 ] ) { // 7
+      returnValue = descendFetch<T>( tree, index, keySize, 7 );
+    } else if( keyChar == Dec::val[ 8 ] ) { // 8
+      returnValue = descendFetch<T>( tree, index, keySize, 8 );
+    } else if( keyChar == Dec::val[ 9 ] ) { // 9
+      returnValue = descendFetch<T>( tree, index, keySize, 9 );
     } else {
       String msg( "TreeController::getDec - key val:" );
-      msg.append( " " ).append( &c ).append( " " );
+      msg.append( " " ).append( &keyChar ).append( " " );
       msg.append( " does not match to binary key set:" );
-      String set( k );
+      String set( key );
       msg.append( " " ).append( set ).append( " " );
       throw Error( msg );
     } // if
-    if( t == 0 ) {
-      Char* pC = &c;
+    if( tree == 0 ) {
+      Char* pKeyChar = &keyChar;
       String msg( "TreeController::getDec - no object available for key:" );
-      msg.append( " " ).append( k ).append( " " );
-      msg.append( "at symbol: " ).append( pC ).append( " " );
+      msg.append( " " ).append( key ).append( " " );
+      msg.append( "at symbol: " ).append( pKeyChar ).append( " " );
       msg.append( "( tree == 0 )" ).append( " " );
       throw Failure( msg );
     } // null pointer tree
-  } // i
-  if( f == 0 ) {
+  } // index
+  if( returnValue == 0 ) {
     String msg( "TreeController::getDec - no object available for key:" );
-    msg.append( " " ).append( k ).append( " " );
+    msg.append( " " ).append( key ).append( " " );
     msg.append( "( found == 0 )" ).append( " " );
     throw Failure( msg );
   } // null pointer object
-  T o = *f;
-  return o;
+  T result = *returnValue;
+  return result;
 } // TreeController::getDec
 
 template<typename T> void /// deletes an hash tree
-TreeController::delDec( Tree* t, Int16 kSize ) {
-  descendDelete<T>( t, kSize, Dec::size );
+TreeController::delDec( Tree* tree, Int16 keySize ) {
+  descendDelete<T>( tree, keySize, Dec::size );
 } // TreeController::delDec
 
 /******************************************************************************/

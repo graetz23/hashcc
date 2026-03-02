@@ -116,56 +116,56 @@ fnv24_64( String key ) {
 
 uInt16
 hashAdler16( Char* key, uInt16 len ) {
-  uInt16 s1 = 1;
-  uInt16 s2 = 0;
+  uInt16 adlerSum1 = 1;
+  uInt16 adlerSum2 = 0;
   // std::cout << std::endl << std::flush;
-  for( uInt16 n = 0; n < len; n++ ) {
-    uInt16 s0 = (uInt16)key[ n ]; // get to char an then cast the char
-    // std::cout << "s0: " << s0 << std::endl << std::flush;
-    s1 = ( s1 + s0 ) % 65521;
-    // std::cout << "s1: " << s2 << std::endl << std::flush;
-    s2 = ( s2 + s1 ) % 65521;
-    // std::cout << "s2: " << s2 << std::endl << std::flush;
+  for( uInt16 index = 0; index < len; index++ ) {
+    uInt16 charValue = (uInt16)key[ index ]; // get to char an then cast the char
+    // std::cout << "charValue: " << charValue << std::endl << std::flush;
+    adlerSum1 = ( adlerSum1 + charValue ) % 65521;
+    // std::cout << "adlerSum1: " << adlerSum1 << std::endl << std::flush;
+    adlerSum2 = ( adlerSum2 + adlerSum1 ) % 65521;
+    // std::cout << "adlerSum2: " << adlerSum2 << std::endl << std::flush;
   }
   // std::cout << std::endl << std::flush;
-  uInt16 hash = ( s2 << 16 ) | s1;
-  return hash;
+  uInt16 hashResult = ( adlerSum2 << 16 ) | adlerSum1;
+  return hashResult;
 } // hashAdler16
 
 uInt32 
 hashAdler32( Char* key, uInt16 len ) {
-  uInt32 s1 = 1;
-  uInt32 s2 = 0;
+  uInt32 adlerSum1 = 1;
+  uInt32 adlerSum2 = 0;
   // std::cout << std::endl << std::flush;
-  for( uInt16 n = 0; n < len; n++ ) {
-    uInt32 s0 = (uInt32)key[ n ]; // get to char an then cast the char
-    // std::cout << "s0: " << s0 << std::endl << std::flush;
-    s1 = ( s1 + s0 ) % 65521;
-    // std::cout << "s1: " << s2 << std::endl << std::flush;
-    s2 = ( s2 + s1 ) % 65521;
-    // std::cout << "s2: " << s2 << std::endl << std::flush;
+  for( uInt16 index = 0; index < len; index++ ) {
+    uInt32 charValue = (uInt32)key[ index ]; // get to char an then cast the char
+    // std::cout << "charValue: " << charValue << std::endl << std::flush;
+    adlerSum1 = ( adlerSum1 + charValue ) % 65521;
+    // std::cout << "adlerSum1: " << adlerSum1 << std::endl << std::flush;
+    adlerSum2 = ( adlerSum2 + adlerSum1 ) % 65521;
+    // std::cout << "adlerSum2: " << adlerSum2 << std::endl << std::flush;
   }
   // std::cout << std::endl << std::flush;
-  uInt32 hash = ( s2 << 16 ) | s1;
-  return hash;
+  uInt32 hashResult = ( adlerSum2 << 16 ) | adlerSum1;
+  return hashResult;
 } // hashAdler32
 
 uInt64 
 hashAdler64( Char* key, uInt16 len ) {
-  uInt64 s1 = 1;
-  uInt64 s2 = 0;
+  uInt64 adlerSum1 = 1;
+  uInt64 adlerSum2 = 0;
   // std::cout << std::endl << std::flush;
-  for( uInt16 n = 0; n < len; n++ ) {
-    uInt64 s0 = (uInt64)key[ n ]; // get to char an then cast the char
-    // std::cout << "s0: " << s0 << std::endl << std::flush;
-    s1 = ( s1 + s0 ) % 65521;
-    // std::cout << "s1: " << s2 << std::endl << std::flush;
-    s2 = ( s2 + s1 ) % 65521;
-    // std::cout << "s2: " << s2 << std::endl << std::flush;
+  for( uInt16 index = 0; index < len; index++ ) {
+    uInt64 charValue = (uInt64)key[ index ]; // get to char an then cast the char
+    // std::cout << "charValue: " << charValue << std::endl << std::flush;
+    adlerSum1 = ( adlerSum1 + charValue ) % 65521;
+    // std::cout << "adlerSum1: " << adlerSum1 << std::endl << std::flush;
+    adlerSum2 = ( adlerSum2 + adlerSum1 ) % 65521;
+    // std::cout << "adlerSum2: " << adlerSum2 << std::endl << std::flush;
   }
   // std::cout << std::endl << std::flush;
-  uInt64 hash = ( s2 << 16 ) | s1;
-  return hash;
+  uInt64 hashResult = ( adlerSum2 << 16 ) | adlerSum1;
+  return hashResult;
 } // hashAdler64
 
 uInt16
@@ -213,31 +213,31 @@ hashFNV64( Char* key, uInt16 len ) {
 
 uInt32 // ELF hash algorithm
 hashELF32( Char* key, uInt16 len ) {
-  uInt32 hash = 0;
-  uInt32 x = 0;
-  for( uInt32 i = 0; i < len; key++, i++ ) {
-    hash = (hash << 4) + (uInt32)(*key);
-    if( ( x = hash & 0xF0000000L ) != 0 ) {
-      hash ^= x >> 24;
+  uInt32 hashValue = 0;
+  uInt32 highBitMask = 0;
+  for( uInt32 index = 0; index < len; key++, index++ ) {
+    hashValue = (hashValue << 4) + (uInt32)(*key);
+    if( ( highBitMask = hashValue & 0xF0000000L ) != 0 ) {
+      hashValue ^= highBitMask >> 24;
       // The ELF ABI says `h &= ~g', but this is equivalent in
       // this case and on some machines one insn instead of two.
-      hash ^= x;
-    } // hash
-  } // i
-  return hash;
+      hashValue ^= highBitMask;
+    } // hashValue
+  } // index
+  return hashValue;
 } // hashELF32
 
 /******************************************************************************/
 
 String
-blowZero( String bin, uInt16 size ) {
-  String blow = "";
-  uInt16 steps = size - (uInt16)bin.length();
-  for( uInt16 b = 0; b < size; b++ )
-    if( b < steps )
-      blow.append( "0" );
-  blow.append( bin );
-  return blow;
+blowZero( String binaryString, uInt16 size ) {
+  String paddedString = "";
+  uInt16 zeroPadCount = size - (uInt16)binaryString.length();
+  for( uInt16 index = 0; index < size; index++ )
+    if( index < zeroPadCount )
+      paddedString.append( "0" );
+  paddedString.append( binaryString );
+  return paddedString;
 } // blowZero
 
 /******************************************************************************/

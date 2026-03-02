@@ -38,32 +38,32 @@ namespace TEST {
 void /// test the static look up tables from above
 testStc( void ) {
 
-  for( uChar c = 0; c < STC::Bin::size; c++ ) // HASHCC::STC::Bin
-    std::cout << STC::Bin::val[ c ] << " " << std::flush;
+  for( uChar index = 0; index < STC::Bin::size; index++ ) // HASHCC::STC::Bin
+    std::cout << STC::Bin::val[ index ] << " " << std::flush;
   std::cout << std::endl << std::flush;
 
-  for( uChar c = 0; c < STC::Qud::size; c++ ) // HASHCC::STC::Qud
-    std::cout << STC::Qud::val[ c ] << " " << std::flush;
+  for( uChar index = 0; index < STC::Qud::size; index++ ) // HASHCC::STC::Qud
+    std::cout << STC::Qud::val[ index ] << " " << std::flush;
   std::cout << std::endl << std::flush;
 
-  for( uChar c = 0; c < STC::Oct::size; c++ ) // HASHCC::STC::Oct
-    std::cout << STC::Oct::val[ c ] << " " << std::flush;
+  for( uChar index = 0; index < STC::Oct::size; index++ ) // HASHCC::STC::Oct
+    std::cout << STC::Oct::val[ index ] << " " << std::flush;
   std::cout << std::endl << std::flush;
 
-  for( uChar c = 0; c < STC::Dec::size; c++ ) // HASHCC::STC::Dec
-    std::cout << STC::Dec::val[ c ] << " " << std::flush;
+  for( uChar index = 0; index < STC::Dec::size; index++ ) // HASHCC::STC::Dec
+    std::cout << STC::Dec::val[ index ] << " " << std::flush;
   std::cout << std::endl << std::flush;
 
-  for( uChar c = 0; c < STC::Hex::size; c++ ) // HASHCC::STC::Hex
-    std::cout << STC::Hex::val[ c ] << " " << std::flush;
+  for( uChar index = 0; index < STC::Hex::size; index++ ) // HASHCC::STC::Hex
+    std::cout << STC::Hex::val[ index ] << " " << std::flush;
   std::cout << std::endl << std::flush;
 
-  for( uChar c = 0; c < STC::Abc::size; c++ ) // HASHCC::STC::Abc
-    std::cout << STC::Abc::val[ c ] << " " << std::flush;
+  for( uChar index = 0; index < STC::Abc::size; index++ ) // HASHCC::STC::Abc
+    std::cout << STC::Abc::val[ index ] << " " << std::flush;
   std::cout << std::endl << std::flush;
 
-  for( uChar c = 0; c < STC::Aph::size; c++ ) // HASHCC::STC::Aph
-    std::cout << STC::Aph::val[ c ] << " " << std::flush;
+  for( uChar index = 0; index < STC::Aph::size; index++ ) // HASHCC::STC::Aph
+    std::cout << STC::Aph::val[ index ] << " " << std::flush;
   std::cout << std::endl << std::flush;
 
 } // testStc
@@ -245,11 +245,11 @@ testHashMap( OBJ::Type::HashMap hashMapType ) {
     int noOf = 64;
     OBJ::HashMap< Int16, Int16 >* hashMapI = hashMapBuilder
         .create< Int16, Int16 >( hashMapType );
-    for( Int16 i = 0; i < noOf; i++ )
-      hashMapI->put( i * 17, i );
-    for( Int16 i = 0; i < noOf; i++ ) {
-      Int16 value = hashMapI->get( i * 17 );
-      std::cout << "i: " << i << " key: " << i * 17 << " value: " << value
+    for( Int16 index = 0; index < noOf; index++ )
+      hashMapI->put( index * 17, index );
+    for( Int16 index = 0; index < noOf; index++ ) {
+      Int16 value = hashMapI->get( index * 17 );
+      std::cout << "index: " << index << " key: " << index * 17 << " value: " << value
           << std::endl << std::flush;
     }
     delete hashMapI;
@@ -258,11 +258,11 @@ testHashMap( OBJ::Type::HashMap hashMapType ) {
     noOf = 64;
     OBJ::HashMap< Int16, std::exception* >* hashMapE = hashMapBuilder
         .create< Int16, std::exception* >( hashMapType );
-    for( Int16 i = 0; i < noOf; i++ )
-      hashMapE->put( i * 13, new std::exception( ) );
-    for( Int16 i = 0; i < noOf; i++ ) {
-      std::exception* value = hashMapE->get( i * 13 );
-      std::cout << "i: " << i << " key: " << i * 13 << " value: " << value
+    for( Int16 index = 0; index < noOf; index++ )
+      hashMapE->put( index * 13, new std::exception( ) );
+    for( Int16 index = 0; index < noOf; index++ ) {
+      std::exception* value = hashMapE->get( index * 13 );
+      std::cout << "index: " << index << " key: " << index * 13 << " value: " << value
           << std::endl << std::flush;
       delete value;
     }
@@ -272,11 +272,11 @@ testHashMap( OBJ::Type::HashMap hashMapType ) {
     noOf = 64;
     OBJ::HashMap< Int16, DMY::Noob* >* hashMapN = hashMapBuilder
         .create< Int16, DMY::Noob* >( hashMapType );
-    for( Int16 i = 0; i < noOf; i++ )
-      hashMapN->put( i * 7, new DMY::Noob( ) );
-    for( Int16 i = 0; i < noOf; i++ ) {
-      DMY::Noob* value = hashMapN->get( i * 7 );
-      std::cout << "i: " << i << " key: " << i * 7 << " value: " << value
+    for( Int16 index = 0; index < noOf; index++ )
+      hashMapN->put( index * 7, new DMY::Noob( ) );
+    for( Int16 index = 0; index < noOf; index++ ) {
+      DMY::Noob* value = hashMapN->get( index * 7 );
+      std::cout << "index: " << index << " key: " << index * 7 << " value: " << value
           << std::endl << std::flush;
       delete value;
     }
@@ -286,32 +286,32 @@ testHashMap( OBJ::Type::HashMap hashMapType ) {
     noOf = 100000;
     OBJ::HashMap< Int16, Int16 >* hashMapLoad = hashMapBuilder
         .create< Int16, Int16 >( hashMapType );
-    for( Int16 i = 0; i < noOf; i++ )
-      hashMapLoad->put( i, i );
-    for( Int16 i = 0; i < noOf; i++ ) {
-      Int16 value = hashMapLoad->get( i );
-      if( value != i ) // counter was stored
+    for( Int16 index = 0; index < noOf; index++ )
+      hashMapLoad->put( index, index );
+    for( Int16 index = 0; index < noOf; index++ ) {
+      Int16 value = hashMapLoad->get( index );
+      if( value != index ) // counter was stored
         throw ERR::Error( "TEST::HashMap - hashed wrong value for key" );
-    } // i
+    } // index
     delete hashMapLoad;
     std::cout << std::endl << std::flush;
 
-  } catch( ERR::Failure& f ) {
+  } catch( ERR::Failure& caughtFailure ) {
     std::cout << "HASHCC::ERR::Failure:" << std::endl << std::flush;
     std::cout << std::endl << std::flush;
-    f.report( );
-  } catch( ERR::Error& e ) {
+    caughtFailure.report( );
+  } catch( ERR::Error& caughtError ) {
     std::cout << "HASHCC::ERR::Error:" << std::endl << std::flush;
     std::cout << std::endl << std::flush;
-    e.report( );
-  } catch( ERR::Exception& e ) {
+    caughtError.report( );
+  } catch( ERR::Exception& caughtException ) {
     std::cout << "HASHCC::ERR::Exception:" << std::endl << std::flush;
     std::cout << std::endl << std::flush;
-    e.report( );
-  } catch( std::exception& e ) {
+    caughtException.report( );
+  } catch( std::exception& caughtStdException ) {
     std::cout << "std::exception:" << std::endl << std::flush;
     std::cout << std::endl << std::flush;
-    std::cout << e.what( ) << std::endl << std::flush;
+    std::cout << caughtStdException.what( ) << std::endl << std::flush;
   } catch( ... ) {
     std::cout << "unknown exception" << std::endl << std::flush;
     std::cout << std::endl << std::flush;
@@ -345,7 +345,7 @@ test( void ) {
     //Char* key3 = "10";
     //Char* key4 = "11";
 
-    String s( "" );
+    String emptyString( "" );
     String str( "DUMMY LOAD" );
     String str1( "Hash me, hash me once" );
     String str2( "Hash me, hash me a second time" );
@@ -358,11 +358,11 @@ test( void ) {
     uInt16 bufferSize = 1;
 
     // int hash //
-    for( Int16 i = -10; i < 10; i++ ) {
+    for( Int16 intValue = -10; intValue < 10; intValue++ ) {
       uInt16* buffer = new uInt16[ bufferSize ];
-      for( uInt16 b = 0; b < bufferSize; b++ )
-        buffer[ b ] = i;
-      std::cout << i << " decimal == "
+      for( uInt16 bufferIndex = 0; bufferIndex < bufferSize; bufferIndex++ )
+        buffer[ bufferIndex ] = intValue;
+      std::cout << intValue << " decimal == "
           << FNC::hashAdler16( (Char*)buffer, bufferSize ) << " binary"
           << std::endl << std::flush;
       delete[ ] buffer;
@@ -370,33 +370,33 @@ test( void ) {
     std::cout << std::endl << std::flush;
 
     // char hash //
-    for( uChar i = 0; i < 10; i++ ) {
+    for( uChar charValue = 0; charValue < 10; charValue++ ) {
       Char* buffer = new Char[ bufferSize ];
-      for( uChar b = 0; b < bufferSize; b++ )
-        buffer[ b ] = i;
-      std::cout << i << " decimal == " << FNC::hashAdler32( buffer, bufferSize )
+      for( uChar bufferIndex = 0; bufferIndex < bufferSize; bufferIndex++ )
+        buffer[ bufferIndex ] = charValue;
+      std::cout << charValue << " decimal == " << FNC::hashAdler32( buffer, bufferSize )
           << " binary" << std::endl << std::flush;
-      std::cout << i << " decimal == " << FNC::hashFNV32( buffer, bufferSize )
+      std::cout << charValue << " decimal == " << FNC::hashFNV32( buffer, bufferSize )
           << " binary" << std::endl << std::flush;
       delete[ ] buffer;
     }
     std::cout << std::endl << std::flush;
 
     // adler 32 //
-    for( Int16 i = -10; i < 10; i++ ) {
+    for( Int16 intValue = -10; intValue < 10; intValue++ ) {
       Char* buffer = new Char[ bufferSize ];
-      for( uInt16 b = 0; b < bufferSize; b++ )
-        buffer[ b ] = (Char)i;
+      for( uInt16 bufferIndex = 0; bufferIndex < bufferSize; bufferIndex++ )
+        buffer[ bufferIndex ] = (Char)intValue;
       uInt16 fnvHashInt = FNC::hashFNV16( buffer, bufferSize );
       std::stringstream stream;
       stream << fnvHashInt;
       String fnvHash;
       stream >> fnvHash;
-      std::cout << i << " decimal == " << fnvHash << " binary" << std::endl
+      std::cout << intValue << " decimal == " << fnvHash << " binary" << std::endl
           << std::flush;
 
       treeC->storeDec< String >( tree, str, (Char*)fnvHash.c_str( ), 24 );
-      std::cout << i << " fetched == "
+      std::cout << intValue << " fetched == "
           << treeC->getDec< String >( tree, (Char*)fnvHash.c_str( ), 24 )
           << std::endl << std::flush;
 
@@ -463,34 +463,34 @@ test( void ) {
     tree = 0;
     keySize = 16;
     Int16 range = (Int16)pow( 2., (double)keySize );
-    for( Int16 h = 0; h < range; h++ ) {
+    for( Int16 hashIndex = 0; hashIndex < range; hashIndex++ ) {
 
-      String hash = HASHCC::FNC::blowZero( HASHCC::JNK::xxx_to_bin( h ),
+      String hashString = HASHCC::FNC::blowZero( HASHCC::JNK::xxx_to_bin( hashIndex ),
         keySize );
-      cChar* key = hash.c_str( );
-      String load = hash; // 16
-      //load = s;
-      load.append( load ); // 32
-      load.append( load ); // 64
-      //load.append( load ); // 128
-      //load.append( load ); // 256
-      //load.append( load ); // 512
-      //load.append( load ); // 1024
-      //load.append( load ); // 2048
-      //load.append( load ); // 4096
-      treeC->storeBin< String >( tree, load, (Char*)key, keySize );
+      cChar* keyChars = hashString.c_str( );
+      String loadString = hashString; // 16
+      //loadString = emptyString;
+      loadString.append( loadString ); // 32
+      loadString.append( loadString ); // 64
+      //loadString.append( loadString ); // 128
+      //loadString.append( loadString ); // 256
+      //loadString.append( loadString ); // 512
+      //loadString.append( loadString ); // 1024
+      //loadString.append( loadString ); // 2048
+      //loadString.append( loadString ); // 4096
+      treeC->storeBin< String >( tree, loadString, (Char*)keyChars, keySize );
 
-    } // h
+    } // hashIndex
 
-    for( Int16 h = 0; h < range; h++ ) {
+    for( Int16 hashIndex = 0; hashIndex < range; hashIndex++ ) {
 
-      String hash = HASHCC::FNC::blowZero( HASHCC::JNK::xxx_to_bin( h ),
+      String hashString = HASHCC::FNC::blowZero( HASHCC::JNK::xxx_to_bin( hashIndex ),
         keySize );
-      cChar* key = hash.c_str( );
-      String res = treeC->getBin< String >( tree, (Char*)key, keySize );
-      // std::cout << res << std::endl << std::flush;
+      cChar* keyChars = hashString.c_str( );
+      String resultString = treeC->getBin< String >( tree, (Char*)keyChars, keySize );
+      // std::cout << resultString << std::endl << std::flush;
 
-    } // h
+    } // hashIndex
 
     Char* search1 = (Char*)"0101010101010101";
     std::cout << treeC->getBin< String >( tree, search1, keySize ) << std::endl
@@ -512,22 +512,22 @@ test( void ) {
 
     delete treeC;
 
-  } catch( ERR::Failure f ) {
+  } catch( ERR::Failure caughtFailure ) {
     std::cout << "HASHCC::ERR::Failure:" << std::endl << std::flush;
     std::cout << std::endl << std::flush;
-    f.report( );
-  } catch( ERR::Error e ) {
+    caughtFailure.report( );
+  } catch( ERR::Error caughtError ) {
     std::cout << "HASHCC::ERR::Error:" << std::endl << std::flush;
     std::cout << std::endl << std::flush;
-    e.report( );
-  } catch( ERR::Exception e ) {
+    caughtError.report( );
+  } catch( ERR::Exception caughtException ) {
     std::cout << "HASHCC::ERR::Exception:" << std::endl << std::flush;
     std::cout << std::endl << std::flush;
-    e.report( );
-  } catch( std::exception e ) {
+    caughtException.report( );
+  } catch( std::exception caughtStdException ) {
     std::cout << "std::exception:" << std::endl << std::flush;
     std::cout << std::endl << std::flush;
-    std::cout << e.what( ) << std::endl << std::flush;
+    std::cout << caughtStdException.what( ) << std::endl << std::flush;
   } catch( ... ) {
     std::cout << "unknown exception" << std::endl << std::flush;
     std::cout << std::endl << std::flush;

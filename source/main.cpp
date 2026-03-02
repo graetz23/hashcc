@@ -85,12 +85,12 @@ main( int argc, char** argv ) {
     std::cout << "done" << std::endl << std::flush;
 
   }                    // HASHCC exception class
-  catch( HASHCC::ERR::Exception& e ) {
-    e.report( );       // break it down
+  catch( HASHCC::ERR::Exception& caughtException ) {
+    caughtException.report( );       // break it down
   }                    // standard exception class
-  catch( std::exception& e ) {
+  catch( std::exception& caughtStdException ) {
     std::cout << "std::exception caught:" << std::endl << std::flush;
-    std::cout << e.what( ) << std::endl << std::flush;
+    std::cout << caughtStdException.what( ) << std::endl << std::flush;
   }                    // any other exception thrown
   catch( ... ) {
     std::cout << "Strange exception caught:" << std::endl << std::flush;

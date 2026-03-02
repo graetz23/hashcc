@@ -37,20 +37,20 @@ namespace TYP {
 
 template< > String // converts a char key to String
 keyConv< Char >( Char key ) {
-  String s;
+  String result;
   std::stringstream stream;
   stream << key;
-  stream >> s;
-  return s;
+  stream >> result;
+  return result;
 } // keyConv
 
 template< > String // converts chars key to String
 keyConv< Char* >( Char* key ) {
-  String s;
+  String result;
   std::stringstream stream;
   stream << key;
-  stream >> s;
-  return s;
+  stream >> result;
+  return result;
 } // keyConv
 
 template< > String // converts string key to String
@@ -60,56 +60,56 @@ keyConv< String >( String key ) {
 
 template< > String // convert a Int16 key to String
 keyConv< Int16 >( Int16 key ) {
-  String s;
+  String result;
   std::stringstream stream;
   stream << key;
-  stream >> s;
-  return s;
+  stream >> result;
+  return result;
 } // keyConv
 
 template< > String // convert a Int32 key to String
 keyConv< Int32 >( Int32 key ) {
-  String s;
+  String result;
   std::stringstream stream;
   stream << key;
-  stream >> s;
-  return s;
+  stream >> result;
+  return result;
 } // keyConv
 
 template< > String // convert a Int64 key to String
 keyConv< Int64 >( Int64 key ) {
-  String s;
+  String result;
   std::stringstream stream;
   stream << key;
-  stream >> s;
-  return s;
+  stream >> result;
+  return result;
 } // keyConv
 
 template< > String // convert a uInt16 key to String
 keyConv< uInt16 >( uInt16 key ) {
-  String s;
+  String result;
   std::stringstream stream;
   stream << key;
-  stream >> s;
-  return s;
+  stream >> result;
+  return result;
 } // keyConv
 
 template< > String // convert a uInt32 key to String
 keyConv< uInt32 >( uInt32 key ) {
-  String s;
+  String result;
   std::stringstream stream;
   stream << key;
-  stream >> s;
-  return s;
+  stream >> result;
+  return result;
 } // keyConv
 
 template< > String // convert a uInt64 key to String
 keyConv< uInt64 >( uInt64 key ) {
-  String s;
+  String result;
   std::stringstream stream;
   stream << key;
-  stream >> s;
-  return s;
+  stream >> result;
+  return result;
 } // keyConv
 
 /******************************************************************************/

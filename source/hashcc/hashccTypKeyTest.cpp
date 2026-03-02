@@ -72,39 +72,39 @@ keyTest< uInt64 >( void ) {
 } // keyTest
 
 template< > void // key okay; no exception thrown
-keyTest< Char >( String f ) {
+keyTest< Char >( String keyString ) {
 } // keyTest
 
 template< > void // key okay; no exception thrown
-keyTest< Char* >( String f ) {
+keyTest< Char* >( String keyString ) {
 } // keyTest
 
 template< > void // key okay; no exception thrown
-keyTest< String >( String f ) {
+keyTest< String >( String keyString ) {
 } // keyTest
 
 template< > void // key okay; no exception thrown
-keyTest< Int16 >( String f ) {
+keyTest< Int16 >( String keyString ) {
 } // keyTest
 
 template< > void // key okay; no exception thrown
-keyTest< Int32 >( String f ) {
+keyTest< Int32 >( String keyString ) {
 } // keyTest
 
 template< > void // key okay; no exception thrown
-keyTest< Int64 >( String f ) {
+keyTest< Int64 >( String keyString ) {
 } // keyTest
 
 template< > void // key okay; no exception thrown
-keyTest< uInt16 >( String f ) {
+keyTest< uInt16 >( String keyString ) {
 } // keyTest
 
 template< > void // key okay; no exception thrown
-keyTest< uInt32 >( String f ) {
+keyTest< uInt32 >( String keyString ) {
 } // keyTest
 
 template< > void // key okay; no exception thrown
-keyTest< uInt64 >( String f ) {
+keyTest< uInt64 >( String keyString ) {
 } // keyTest
 
 /******************************************************************************/

@@ -40,28 +40,28 @@ test( void ) {
   
   try {
 
-    for( Int16 i = 0; i < 8; i++ ) {
-      std::cout << i << " decimal == " << HASHCC::FNC::blowZero( HASHCC::JNK::xxx_to_bin( i ), 8 ) 
+    for( Int16 index = 0; index < 8; index++ ) {
+      std::cout << index << " decimal == " << HASHCC::FNC::blowZero( HASHCC::JNK::xxx_to_bin( index ), 8 ) 
                 << " binary" << std::endl << std::flush;;
     }
     std::cout << std::endl << std::flush;
 
-  } catch( ERR::Failure f ) {
+  } catch( ERR::Failure caughtFailure ) {
     std::cout << "HASHCC::ERR::Failure:" << std::endl << std::flush;
     std::cout << std::endl << std::flush;
-    f.report( );
-  } catch( ERR::Error e ) {
+    caughtFailure.report( );
+  } catch( ERR::Error caughtError ) {
     std::cout << "HASHCC::ERR::Error:" << std::endl << std::flush;
     std::cout << std::endl << std::flush;
-    e.report( );
-  } catch( ERR::Exception e ) {
+    caughtError.report( );
+  } catch( ERR::Exception caughtException ) {
     std::cout << "HASHCC::ERR::Exception:" << std::endl << std::flush;
     std::cout << std::endl << std::flush;
-    e.report( );
-  } catch( std::exception e ) {
+    caughtException.report( );
+  } catch( std::exception caughtStdException ) {
     std::cout << "std::exception:" << std::endl << std::flush;
     std::cout << std::endl << std::flush;
-    std::cout << e.what( ) << std::endl << std::flush;
+    std::cout << caughtStdException.what( ) << std::endl << std::flush;
   } catch( ... ) {
     std::cout << "unknown exception" << std::endl << std::flush;
     std::cout << std::endl << std::flush;

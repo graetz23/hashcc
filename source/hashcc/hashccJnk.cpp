@@ -40,8 +40,8 @@ cvt_binary( uInt16 input ) {
   if( input == 0 )
     return "0"; // trivial case
   String result;
-  for( Int16 i = std::numeric_limits<uInt16>::digits - 1; i >= 0; --i) {
-    if(input & (1 << i))
+  for( Int16 bitPosition = std::numeric_limits<uInt16>::digits - 1; bitPosition >= 0; --bitPosition) {
+    if(input & (1 << bitPosition))
       result += "1";
     else
       if( !result.empty( ) ) 
@@ -55,98 +55,98 @@ cvt_binary( uInt16 input ) {
 #define BITS_FOR_CHAR 8
 
 String
-char2bit( Char c ) {
-  String s;
+char2bit( Char character ) {
+  String bitString;
   std::bitset<BITS_FOR_CHAR> byte;
-  byte |= c;
-  std::stringstream b;
-  b << byte;
-  b >> s;
-  return s;
+  byte |= character;
+  std::stringstream stream;
+  stream << byte;
+  stream >> bitString;
+  return bitString;
 }
 
 String
-int2bit( uChar c ) {
-  String s;
+int2bit( uChar value ) {
+  String bitString;
   std::bitset<BITS_FOR_CHAR * sizeof(uChar)> byte;
-  byte |= c;
-  std::stringstream b;
-  b << byte;
-  b >> s;
-  return s;
+  byte |= value;
+  std::stringstream stream;
+  stream << byte;
+  stream >> bitString;
+  return bitString;
 }
 
 String
-int2bit( Int16 a ) {
-  String s;
+int2bit( Int16 value ) {
+  String bitString;
   std::bitset<BITS_FOR_CHAR * sizeof(Int16)> byte;
-  byte |= a;
-  std::stringstream b;
-  b << byte;
-  b >> s;
-  return s;
+  byte |= value;
+  std::stringstream stream;
+  stream << byte;
+  stream >> bitString;
+  return bitString;
 }
 
 String
-int2bit( uInt16 a ) {
-  String s;
+int2bit( uInt16 value ) {
+  String bitString;
   std::bitset<BITS_FOR_CHAR * sizeof(uInt16)> byte;
-  byte |= a;
-  std::stringstream b;
-  b << byte;
-  b >> s;
-  return s;
+  byte |= value;
+  std::stringstream stream;
+  stream << byte;
+  stream >> bitString;
+  return bitString;
 }
 
 String
-int2bit( Int32 a ) {
-  String s;
+int2bit( Int32 value ) {
+  String bitString;
   std::bitset<BITS_FOR_CHAR * sizeof(Int32)> byte;
-  byte |= a;
-  std::stringstream b;
-  b << byte;
-  b >> s;
-  return s;
+  byte |= value;
+  std::stringstream stream;
+  stream << byte;
+  stream >> bitString;
+  return bitString;
 }
 
 String
-int2bit( uInt32 a ) {
-  String s;
+int2bit( uInt32 value ) {
+  String bitString;
   std::bitset<BITS_FOR_CHAR * sizeof(uInt32)> byte;
-  byte |= a;
-  std::stringstream b;
-  b << byte;
-  b >> s;
-  return s;
+  byte |= value;
+  std::stringstream stream;
+  stream << byte;
+  stream >> bitString;
+  return bitString;
 }
 
 String
-int2bit( Int64 a ) {
-  String s;
+int2bit( Int64 value ) {
+  String bitString;
   std::bitset<BITS_FOR_CHAR * sizeof(Int64)> byte;
-  byte |= (unsigned long)a;
-  std::stringstream b;
-  b << byte;
-  b >> s;
-  return s;
+  byte |= (unsigned long)value;
+  std::stringstream stream;
+  stream << byte;
+  stream >> bitString;
+  return bitString;
 }
 
 String
-int2bit( uInt64 a ) {
-  String s;
+int2bit( uInt64 value ) {
+  String bitString;
   std::bitset<BITS_FOR_CHAR * sizeof(uInt64)> byte;
-  byte |= (unsigned long)a;
-  std::stringstream b;
-  b << byte;
-  b >> s;
-  return s;
+  byte |= (unsigned long)value;
+  std::stringstream stream;
+  stream << byte;
+  stream >> bitString;
+  return bitString;
 }
 
 String
 dec2hex2( Int16 dec ) {
   String hex;
-  for( int i = 2 * sizeof( int ) - 1; i >= 0; i-- )
-    hex.append( (Char*)("0123456789ABCDEF"[ ( ( dec >> i * 4 ) & 0xF ) ]) );
+  for( int bitPosition = 2 * sizeof( int ) - 1; bitPosition >= 0; bitPosition-- )
+    hex.append( (Char*)("0123456789ABCDEF"[ ( ( dec >> bitPosition * 4 ) & 0xF ) ]) );
   return hex;
 } // dec2hex2
 
